@@ -61,6 +61,7 @@ import ProfileSettings from './pages/profile-settings';
 import AdminFixSuperAdmin from './pages/admin-fix-superadmin';
 import SMSDashboard from './components/SMSDashboard';
 import HotelDashboard from './pages/hotel/HotelDashboard';
+import StaffDashboard from './pages/hotel/StaffDashboard';
 import LandingPage from './pages/LandingPage';
 import OnboardingWizard from './pages/onboarding/OnboardingWizard';
 import VerificationPending from './pages/login/VerificationPending';

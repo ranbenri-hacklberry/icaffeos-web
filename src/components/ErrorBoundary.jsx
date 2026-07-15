@@ -104,12 +104,13 @@ class ErrorBoundary extends React.Component {
                 </motion.button>
               </div>
 
-              {showDetails && this.state.error && (
+              {this.state.error && (
                 <motion.details
                   initial={{ opacity: 0 }}
                   animate={{ opacity: 1 }}
-                  transition={{ delay: 1 }}
-                  className="mt-10 text-right bg-black/10 p-5 rounded-[2rem] text-[10px] opacity-40 hover:opacity-100 transition-opacity"
+                  transition={{ delay: 0.5 }}
+                  open={true}
+                  className="mt-10 text-right bg-black/10 p-5 rounded-[2rem] text-[10px] opacity-100"
                 >
                   <summary className="cursor-pointer font-bold uppercase tracking-widest text-slate-400 list-none">
                     פרטים טכניים לשפים מנוסים 🛠️
