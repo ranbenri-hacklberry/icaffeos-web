@@ -186,18 +186,12 @@ export default function LandingPage() {
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent opacity-85" />
               
-              <div className="absolute inset-0 p-6 flex flex-col justify-between z-10">
-                <div className="flex justify-between items-start">
-                  <span className="text-stone-300 text-[10px] font-mono tracking-widest bg-black/50 px-2 py-1 rounded backdrop-blur-sm">FOUNDER // PROFILE</span>
-                  <span className="px-2 py-1 rounded bg-amber-500/20 border border-amber-500/30 text-[10px] text-amber-400 font-bold uppercase tracking-wider backdrop-blur-sm">M4 PRO</span>
-                </div>
-                
+              <div className="absolute inset-0 p-6 flex flex-col justify-end z-10">
                 <div className="flex justify-between items-end border-t border-stone-800/40 pt-4">
                   <div>
                     <h4 className="text-sm font-bold text-amber-400">רן בן ארי</h4>
                     <p className="text-[10px] text-stone-400">שף וארכיטקט מערכות</p>
                   </div>
-                  <span className="text-xl">☕</span>
                 </div>
               </div>
             </div>
