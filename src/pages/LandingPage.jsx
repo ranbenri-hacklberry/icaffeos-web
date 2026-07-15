@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import supabase from '../lib/supabase';
+import { getBackendApiUrl } from '../utils/apiUtils';
 
 export default function LandingPage() {
   const [businessName, setBusinessName] = useState('');
@@ -22,46 +22,24 @@ export default function LandingPage() {
     setErrorMsg('');
 
     try {
-      const newBusinessId = crypto.randomUUID();
-      const trialStart = new Date().toISOString();
-      const trialEnd = new Date(Date.now() + 30 * 24 * 60 * 60 * 1000).toISOString();
-
-      const hasStamps = !clubType.includes('הטבות');
-      const brandColor = hasStamps ? '#1c1a19' : '#15803d'; // Cafe brown or Nursery green default
-      const stampIcon = hasStamps ? 'coffee-cup' : 'percent';
-
-      // 1. Insert Business
-      const { error: bizError } = await supabase.from('businesses').insert({
-        id: newBusinessId,
-        name: businessName,
-        brand_color: brandColor,
-        has_stamps: hasStamps,
-        stamp_limit: 10,
-        stamp_icon: stampIcon,
-        settings: {
-          status: 'pending_design',
-          trial_start: trialStart,
-          trial_end: trialEnd,
-          owner_name: ownerName,
-          phone: phone,
-          club_type: clubType
+      const baseUrl = getBackendApiUrl();
+      const response = await fetch(`${baseUrl}/api/public/register`, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
         },
-        created_at: trialStart
+        body: JSON.stringify({
+          businessName,
+          ownerName,
+          phone,
+          clubType,
+        }),
       });
 
-      if (bizError) throw bizError;
-
-      // 2. Insert Default Admin Employee
-      const { error: empError } = await supabase.from('employees').insert({
-        name: ownerName,
-        pin_code: '1234', // default pin
-        access_level: 'Manager',
-        business_id: newBusinessId,
-        is_admin: true,
-        email: `${phone.replace(/\D/g, '')}@icaffeos.com`
-      });
-
-      if (empError) throw empError;
+      const data = await response.json();
+      if (!response.ok) {
+        throw new Error(data.error || 'Registration failed');
+      }
 
       setSuccess(true);
     } catch (err) {
@@ -203,7 +181,7 @@ export default function LandingPage() {
             <div className="relative group w-full max-w-sm aspect-[4/5] rounded-3xl overflow-hidden border border-stone-800 shadow-2xl transition duration-500 hover:border-amber-500/30">
               <img 
                 src="./assets/ran_founder.jpg" 
-                alt="רן בר-אורי מחזיק Mac Mini M4" 
+                alt="רן בן ארי מחזיק Mac Mini M4" 
                 className="absolute inset-0 w-full h-full object-cover grayscale group-hover:grayscale-0 transition duration-700 ease-out transform group-hover:scale-105"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent opacity-85" />
@@ -216,8 +194,8 @@ export default function LandingPage() {
                 
                 <div className="flex justify-between items-end border-t border-stone-800/40 pt-4">
                   <div>
-                    <h4 className="text-sm font-bold text-amber-400">רן בר-אורי</h4>
-                    <p className="text-[10px] text-stone-400">מייסד וארכיטקט מערכות, icaffeOS</p>
+                    <h4 className="text-sm font-bold text-amber-400">רן בן ארי</h4>
+                    <p className="text-[10px] text-stone-400">שף וארכיטקט מערכות</p>
                   </div>
                   <span className="text-xl">☕</span>
                 </div>
