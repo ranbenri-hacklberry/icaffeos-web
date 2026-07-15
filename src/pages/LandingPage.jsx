@@ -200,24 +200,27 @@ export default function LandingPage() {
         <div className="grid md:grid-cols-2 gap-12 items-center">
           {/* Image Column */}
           <div className="order-2 md:order-1 flex justify-center">
-            <div className="relative group w-full max-w-sm aspect-[4/5] rounded-3xl overflow-hidden bg-gradient-to-br from-amber-950/40 via-[#181715] to-amber-700/10 border border-stone-800 p-6 flex flex-col justify-between shadow-2xl transition duration-500 hover:border-amber-500/30">
-              <div className="absolute inset-0 bg-radial-gradient from-amber-500/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-              <div className="flex justify-between items-start z-10">
-                <span className="text-stone-500 text-xs font-mono tracking-widest">FOUNDER // PROFILE</span>
-                <span className="px-2 py-1 rounded bg-amber-500/10 border border-amber-500/20 text-[10px] text-amber-400 font-bold uppercase tracking-wider">M4 PRO</span>
-              </div>
-              <div className="my-auto text-center px-4 z-10">
-                <span className="text-4xl block mb-4 filter drop-shadow">📸</span>
-                <p className="text-sm font-semibold tracking-wide text-stone-300 leading-relaxed font-mono">
-                  [ תמונת פרופיל אייקונית - רן מחזיק Mac Mini M4 בסגנון סטיב ג'ובס ]
-                </p>
-              </div>
-              <div className="flex justify-between items-end border-t border-stone-900 pt-4 z-10">
-                <div>
-                  <h4 className="text-sm font-bold text-amber-500">רן בר-אורי</h4>
-                  <p className="text-[10px] text-stone-500">מייסד וארכיטקט מערכות, icaffeOS</p>
+            <div className="relative group w-full max-w-sm aspect-[4/5] rounded-3xl overflow-hidden border border-stone-800 shadow-2xl transition duration-500 hover:border-amber-500/30">
+              <img 
+                src="./assets/ran_founder.jpg" 
+                alt="רן בר-אורי מחזיק Mac Mini M4" 
+                className="absolute inset-0 w-full h-full object-cover grayscale group-hover:grayscale-0 transition duration-700 ease-out transform group-hover:scale-105"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent opacity-85" />
+              
+              <div className="absolute inset-0 p-6 flex flex-col justify-between z-10">
+                <div className="flex justify-between items-start">
+                  <span className="text-stone-300 text-[10px] font-mono tracking-widest bg-black/50 px-2 py-1 rounded backdrop-blur-sm">FOUNDER // PROFILE</span>
+                  <span className="px-2 py-1 rounded bg-amber-500/20 border border-amber-500/30 text-[10px] text-amber-400 font-bold uppercase tracking-wider backdrop-blur-sm">M4 PRO</span>
                 </div>
-                <span className="text-xl">☕</span>
+                
+                <div className="flex justify-between items-end border-t border-stone-800/40 pt-4">
+                  <div>
+                    <h4 className="text-sm font-bold text-amber-400">רן בר-אורי</h4>
+                    <p className="text-[10px] text-stone-400">מייסד וארכיטקט מערכות, icaffeOS</p>
+                  </div>
+                  <span className="text-xl">☕</span>
+                </div>
               </div>
             </div>
           </div>
