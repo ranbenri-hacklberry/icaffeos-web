@@ -21,15 +21,33 @@
   <body>
     <div id="root"></div>
     <script>
-      // Register Service Worker for PWA Android support
+      // Only register Service Worker for local Kiosk/POS environment.
+      // Unregister if running on the cloud dashboard domains.
+      var isCloudEnv = window.location.hostname.includes('pages.dev') || window.location.hostname.includes('icaffeos.com');
+      
       if ('serviceWorker' in navigator) {
-        window.addEventListener('load', function() {
-          navigator.serviceWorker.register('/sw.js').then(function(registration) {
-            console.log('SW registered: ', registration.scope);
-          }, function(err) {
-            console.log('SW registration failed: ', err);
+        if (isCloudEnv) {
+          navigator.serviceWorker.getRegistrations().then(function(registrations) {
+            var unregisteredAny = false;
+            for (var i = 0; i < registrations.length; i++) {
+              registrations[i].unregister().then(function(success) {
+                if (success && !unregisteredAny) {
+                  unregisteredAny = true;
+                  console.log('SW unregistered successfully for Cloud Env.');
+                  location.reload(); // Force reload once to run clean without SW intercept
+                }
+              });
+            }
           });
-        });
+        } else {
+          window.addEventListener('load', function() {
+            navigator.serviceWorker.register('/sw.js').then(function(registration) {
+              console.log('SW registered: ', registration.scope);
+            }, function(err) {
+              console.log('SW registration failed: ', err);
+            });
+          });
+        }
       }
 
       // Auto-reload on server restart: detect connection loss and reload
