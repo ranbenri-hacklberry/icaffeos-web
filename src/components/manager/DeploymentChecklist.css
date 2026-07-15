@@ -1,0 +1,172 @@
+/* 📟 APPLE II TERMINAL STYLE - SYSTEM DEPLOYMENT CHECKLIST */
+
+.terminal-checklist {
+    background-color: #000000;
+    color: #00ff00;
+    font-family: 'Courier New', Courier, monospace;
+    padding: 2rem;
+    position: relative;
+    overflow: hidden;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    text-shadow: 0 0 5px rgba(0, 255, 0, 0.7);
+}
+
+/* Scanline Overlay */
+.terminal-checklist::before {
+    content: " ";
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    background: linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.25) 50%), linear-gradient(90deg, rgba(255, 0, 0, 0.06), rgba(0, 255, 0, 0.02), rgba(0, 0, 255, 0.06));
+    z-index: 10;
+    background-size: 100% 3px, 3px 100%;
+    pointer-events: none;
+}
+
+.terminal-header {
+    border-bottom: 2px solid #00ff00;
+    margin-bottom: 1.5rem;
+    padding-bottom: 0.5rem;
+}
+
+.terminal-header h1 {
+    font-size: 2rem;
+    font-weight: 900;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+.phase-section {
+    margin-bottom: 2rem;
+    border: 1px solid #004400;
+    padding: 1rem;
+    background: rgba(0, 20, 0, 0.2);
+}
+
+.phase-title {
+    background: #004400;
+    color: #00ff00;
+    padding: 0.25rem 0.75rem;
+    display: inline-block;
+    font-weight: bold;
+    margin-bottom: 1rem;
+    text-transform: uppercase;
+}
+
+.checklist-item {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 0.75rem;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.checklist-item:hover {
+    background: rgba(0, 255, 0, 0.1);
+}
+
+.checkbox {
+    width: 24px;
+    height: 24px;
+    border: 2px solid #00ff00;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    flex-shrink: 0;
+}
+
+.checkbox.checked {
+    background: #00ff00;
+    color: #000;
+}
+
+.item-label {
+    font-size: 1rem;
+    text-transform: uppercase;
+}
+
+.telemetry-row {
+    background: rgba(0, 40, 0, 0.3);
+    border: 1px dashed #00ff00;
+    padding: 1rem;
+    margin-top: 2rem;
+    font-size: 0.85rem;
+}
+
+.terminal-textarea {
+    background: #000;
+    border: 1px solid #00ff00;
+    color: #00ff00;
+    font-family: inherit;
+    width: 100%;
+    padding: 1rem;
+    margin-top: 0.5rem;
+    outline: none;
+    resize: vertical;
+}
+
+.terminal-textarea:focus {
+    box-shadow: 0 0 10px rgba(0, 255, 0, 0.5);
+}
+
+.submit-btn {
+    background: #00ff00;
+    color: #000;
+    border: none;
+    padding: 1.5rem;
+    font-family: inherit;
+    font-weight: 900;
+    font-size: 1.5rem;
+    text-transform: uppercase;
+    cursor: pointer;
+    margin-top: 2rem;
+    transition: all 0.3s;
+    width: 100%;
+}
+
+.submit-btn:hover {
+    background: #00cc00;
+    box-shadow: 0 0 20px #00ff00;
+}
+
+.submit-btn:active {
+    transform: scale(0.98);
+}
+
+/* Animations */
+@keyframes flicker {
+    0% {
+        opacity: 0.97;
+    }
+
+    5% {
+        opacity: 0.95;
+    }
+
+    10% {
+        opacity: 0.9;
+    }
+
+    15% {
+        opacity: 0.95;
+    }
+
+    20% {
+        opacity: 0.98;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}
+
+.terminal-checklist {
+    animation: flicker 0.1s infinite;
+}

@@ -1,0 +1,124 @@
+@import url('https://fonts.googleapis.com/css2?family=Heebo:wght@100;200;300;400;500;600;700;800;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@500&display=swap');
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    /* Core Colors */
+    --color-background: #f0f2f5; /* gray-100 */
+    --color-foreground: #1a1a1a; /* gray-900 */
+    --color-border: #e0e0e0; /* gray-300 */
+    --color-input: #ffffff; /* white */
+    --color-ring: #03A9F4; /* light-blue-500 */
+    
+    /* Card Colors */
+    --color-card: #ffffff; /* white */
+    --color-card-foreground: #1a1a1a; /* gray-900 */
+    
+    /* Popover Colors */
+    --color-popover: #ffffff; /* white */
+    --color-popover-foreground: #1a1a1a; /* gray-900 */
+    
+    /* Muted Colors */
+    --color-muted: #f0f2f5; /* gray-100 */
+    --color-muted-foreground: #666666; /* gray-500 */
+    
+    /* Primary Colors */
+    --color-primary: #3b5998; /* blue-700 */
+    --color-primary-foreground: #ffffff; /* white */
+    
+    /* Secondary Colors */
+    --color-secondary: #03A9F4; /* light-blue-500 */
+    --color-secondary-foreground: #ffffff; /* white */
+    
+    /* Accent Colors */
+    --color-accent: #FF5722; /* deep-orange-500 */
+    --color-accent-foreground: #ffffff; /* white */
+    
+    /* Success Colors */
+    --color-success: #388E3C; /* green-600 */
+    --color-success-foreground: #ffffff; /* white */
+    
+    /* Warning Colors */
+    --color-warning: #F57C00; /* orange-600 */
+    --color-warning-foreground: #ffffff; /* white */
+    
+    /* Error/Destructive Colors */
+    --color-error: #D32F2F; /* red-600 */
+    --color-error-foreground: #ffffff; /* white */
+    --color-destructive: #D32F2F; /* red-600 */
+    --color-destructive-foreground: #ffffff; /* white */
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  
+  body {
+    @apply bg-background text-foreground;
+    font-family: 'Heebo', sans-serif;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Heebo', sans-serif;
+  }
+  
+  .font-mono {
+    font-family: 'JetBrains Mono', monospace;
+  }
+}
+
+@layer utilities {
+  .shadow-kiosk {
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  .shadow-kiosk-lg {
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15);
+  }
+  
+  .shadow-kiosk-inset {
+    box-shadow: 0 2px 4px inset rgba(0, 0, 0, 0.1);
+  }
+  
+  .touch-target {
+    min-height: 44px;
+    min-width: 44px;
+  }
+  
+  .animate-scale-touch {
+    transition: transform 150ms ease-out;
+  }
+  
+  .animate-scale-touch:active {
+    transform: scale(1.02);
+  }
+  
+  .animate-slide-in {
+    animation: slideIn 300ms cubic-bezier(0.4, 0, 0.2, 1);
+  }
+  
+  @keyframes slideIn {
+    from {
+      opacity: 0;
+      transform: translateY(10px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  @keyframes shimmer {
+    0% { transform: translateX(-100%); }
+    100% { transform: translateX(100%); }
+  }
+
+  .modal-input {
+    @apply w-full h-12 px-4 bg-slate-50 border border-slate-200 rounded-xl font-bold text-slate-800 focus:outline-none focus:ring-2 focus:ring-indigo-500/20 focus:border-indigo-400 text-sm transition-all;
+  }
+}

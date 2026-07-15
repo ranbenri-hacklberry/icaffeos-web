@@ -1,0 +1,10 @@
+{
+  "title": "הגדרות בעלים (Owner)",
+  "subtitle": "ניהול חיבורים ושירותים רגישים",
+  "geminiSaveSuccess": "✅ מפתח Gemini נשמר בהצלחה!",
+  "grokSaveSuccess": "✅ מפתח Grok נשמר בהצלחה!",
+  "saveError": "❌ שגיאה בשמירת המפתח",
+  "comingSoon": "בקרוב",
+  "language": "שפה",
+  "languageSelection": "בחירת שפה"
+}

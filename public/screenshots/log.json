@@ -1,0 +1,62 @@
+[
+  {
+    "time": "2026-01-21T06:56:36.386Z",
+    "msg": "Initializing...",
+    "type": "info"
+  },
+  {
+    "time": "2026-01-21T06:56:36.727Z",
+    "msg": "✅ DB Validator ready for business: iCaffe",
+    "type": "success"
+  },
+  {
+    "time": "2026-01-21T06:56:36.727Z",
+    "msg": "Step: Login",
+    "type": "info"
+  },
+  {
+    "time": "2026-01-21T06:56:47.373Z",
+    "msg": "Step: Choice [עמדת קופה]",
+    "type": "info"
+  },
+  {
+    "time": "2026-01-21T06:56:47.453Z",
+    "msg": "Step: Adding product",
+    "type": "info"
+  },
+  {
+    "time": "2026-01-21T06:56:50.151Z",
+    "msg": "Step: Clicking [לתשלום]",
+    "type": "info"
+  },
+  {
+    "time": "2026-01-21T06:56:55.300Z",
+    "msg": "Step: Choosing [מזומן]",
+    "type": "info"
+  },
+  {
+    "time": "2026-01-21T06:56:59.384Z",
+    "msg": "Step: Final Submission [העסקה נרשמה]",
+    "type": "info"
+  },
+  {
+    "time": "2026-01-21T06:57:07.504Z",
+    "msg": "WARNING: Created order, but could not find number in UI. Trying DB lookup...",
+    "type": "info"
+  },
+  {
+    "time": "2026-01-21T06:57:07.505Z",
+    "msg": "Step: Opening KDS",
+    "type": "info"
+  },
+  {
+    "time": "2026-01-21T06:57:15.945Z",
+    "msg": "Step: Process Order",
+    "type": "info"
+  },
+  {
+    "time": "2026-01-21T06:57:15.974Z",
+    "msg": "🎉 FLOW FINISHED. Images in tests/replay/",
+    "type": "success"
+  }
+]

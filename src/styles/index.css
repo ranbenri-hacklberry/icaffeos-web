@@ -1,0 +1,285 @@
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Heebo', sans-serif;
+  background-color: #050505;
+}
+
+/* --- SAFE AREA LAYOUT FOR MOBILE NOTCH/STATUS BAR --- */
+.safe-area-layout #root {
+  margin-top: env(safe-area-inset-top, 32px) !important;
+  height: calc(100vh - env(safe-area-inset-top, 32px)) !important;
+  position: relative;
+}
+
+* {
+  box-sizing: border-box;
+  line-height: normal;
+  font-family: inherit;
+  margin: unset;
+}
+
+/* --- KDS MOD STYLING --- */
+.mod-label {
+  display: inline-flex;
+  align-items: center;
+  padding: 2px 8px;
+  border-radius: 6px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  /* white-space: nowrap; REMOVED for wrapping */
+  margin-left: 4px;
+  margin-bottom: 2px;
+  vertical-align: middle;
+  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.05);
+}
+
+/* Base Colors */
+.mod-color-gray {
+  background-color: #f3f4f6;
+  color: #374151;
+  border: 1px solid #e5e7eb;
+}
+
+/* New Color Logic */
+.mod-color-red {
+  background-color: #fee2e2;
+  color: #991b1b;
+  border: 1px solid #fecaca;
+}
+
+/* בלי / ללא */
+.mod-color-lightgreen {
+  background-color: #dcfce7;
+  color: #166534;
+  border: 1px solid #bbf7d0;
+}
+
+/* תוספת */
+.mod-color-soy-oat {
+  background-color: #fef3c7;
+  color: #92400e;
+  border: 1px solid #fcd34d;
+}
+
+/* סויה / שיבולת */
+.mod-color-almond {
+  background-color: #ffedd5;
+  color: #9a3412;
+  border: 1px solid #fdba74;
+}
+
+/* שקדים */
+.mod-color-lactose-free {
+  background-color: #e0e7ff;
+  color: #3730a3;
+  border: 1px solid #c7d2fe;
+}
+
+/* נטול / דקף */
+.mod-color-extra-hot {
+  background-color: #fee2e2;
+  color: #991b1b;
+  border: 1px solid #fecaca;
+}
+
+/* רותח */
+.mod-color-strong {
+  background-color: #f3e8ff;
+  color: #6b21a8;
+  border: 1px solid #e9d5ff;
+}
+
+/* חזק */
+.mod-color-light {
+  background-color: #f0fdf4;
+  color: #166534;
+  border: 1px solid #bbf7d0;
+}
+
+/* חלש */
+.mod-color-blue {
+  background-color: #dbeafe;
+  color: #1e40af;
+  border: 1px solid #bfdbfe;
+}
+
+/* רגיל / דל */
+.mod-color-purple {
+  background-color: #f3e8ff;
+  color: #6b21a8;
+  border: 1px solid #e9d5ff;
+}
+
+/* מפורק (אם יש) */
+
+/* Foam Modifiers */
+/* Foam Modifiers */
+.mod-color-foam-up {
+  background-color: #d1fae5;
+  color: #065f46;
+}
+
+.mod-color-foam-up::before {
+  content: '↑';
+  font-weight: 900;
+  margin-left: 4px;
+}
+
+.mod-color-foam-down {
+  background-color: #fee2e2;
+  color: #991b1b;
+  border: 1px solid #fecaca;
+}
+
+/* Light Red */
+.mod-color-foam-down::before {
+  content: '↓';
+  font-weight: 900;
+  margin-left: 4px;
+}
+
+.mod-color-foam-none {
+  background-color: transparent !important;
+  color: #ef4444 !important;
+  border: 1px solid #ef4444;
+  text-decoration: line-through;
+  padding: 0 6px;
+  position: relative;
+}
+
+/* Remove the slashed-O icon if we are using strikethrough text */
+.mod-color-foam-none::before {
+  content: '';
+  margin: 0;
+}
+
+/* --- Responsive Grid for Short Screens (Tablets) --- */
+/* Target tablets & small laptops (height < 850px) */
+@media (max-height: 850px) {
+  .responsive-menu-grid {
+    grid-template-columns: repeat(4, minmax(0, 1fr)) !important;
+    gap: 0.75rem !important;
+  }
+
+  /* The "Secret Ingredient": Change aspect ratio from 1:1 to 5:4 to save 20% height */
+  .compact-card-ratio {
+    aspect-ratio: 5 / 4 !important;
+  }
+
+  .compact-header-h {
+    height: 52px !important;
+  }
+
+  .compact-padding-p {
+    padding: 0.5rem !important;
+  }
+
+  .compact-padding-s {
+    padding: 0.6rem !important;
+  }
+
+  .compact-text-xl {
+    font-size: 1.1rem !important;
+  }
+
+  .compact-text-lg {
+    font-size: 0.95rem !important;
+  }
+
+  .compact-sidebar-w {
+    width: 310px !important;
+  }
+}
+
+/* For Large Screens (Desktop) - 5 columns from 1270px width */
+@media (min-width: 1270px) {
+  .responsive-menu-grid {
+    grid-template-columns: repeat(5, minmax(0, 1fr)) !important;
+  }
+}
+
+/* On very wide and tall screens, ensure square ratio is restored */
+@media (min-width: 1270px) and (min-height: 851px) {
+  .compact-card-ratio {
+    aspect-ratio: 1 / 1 !important;
+  }
+}
+
+/* --- 🔋 LITE MODE OPTIMIZATIONS (Weak Devices) --- */
+.lite-mode * {
+  /* Disable heavy dropshadows and blurs */
+  box-shadow: none !important;
+  text-shadow: none !important;
+  backdrop-filter: none !important;
+  -webkit-backdrop-filter: none !important;
+  transition-duration: 0.15s !important;
+}
+
+.lite-mode .brand-logo-img {
+  filter: none !important;
+  transition: opacity 0.5s ease-out !important;
+}
+
+.lite-mode .shadow-2xl,
+.lite-mode .shadow-xl,
+.lite-mode .shadow-lg,
+.lite-mode .shadow-md,
+.lite-mode .shadow-sm {
+  box-shadow: none !important;
+  border: 1px solid #e5e7eb !important;
+}
+
+.lite-mode * {
+  animation-duration: 0.15s !important;
+  animation-iteration-count: 1 !important;
+}
+
+/* --- UTILITIES --- */
+/* Custom Scrollbar Utility */
+.custom-scrollbar::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb {
+  background: #e2e8f0;
+  border-radius: 10px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb:hover {
+  background: #cbd5e1;
+}
+
+/* Hide scrollbar utility */
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
+}
+
+.scrollbar-hide {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+/* --- HOTEL POC ANIMATIONS --- */
+@keyframes pulse-red {
+  0% {
+    box-shadow: 0 0 0 0 rgba(244, 63, 94, 0.7);
+  }
+
+  70% {
+    box-shadow: 0 0 0 15px rgba(244, 63, 94, 0);
+  }
+
+  100% {
+    box-shadow: 0 0 0 0 rgba(244, 63, 94, 0);
+  }
+}
+
+.animate-pulse-red {
+  animation: pulse-red 2s infinite;
+}

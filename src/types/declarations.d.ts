@@ -1,0 +1,16 @@
+declare module '@/context/AuthContext';
+declare module '@/context/ThemeContext';
+declare module '@/context/ConnectionContext';
+declare module '@/lib/supabase';
+declare module '@/services/smsService';
+declare module '@/services/geminiService';
+declare module '@/services/ocrService';
+declare module '@/services/driveUploadService';
+declare module '@/utils/imageUtils';
+declare module '@/components/ConnectionStatusBar';
+declare module '@/components/BusinessInfoBar';
+declare module '@/components/music/MiniMusicPlayer';
+declare module '@/components/ManagerAuthModal';
+declare module '@/components/ui/ConfirmationModal';
+declare module '@/pages/kds/components/LowStockReportModal';
+declare module '@/db/database';

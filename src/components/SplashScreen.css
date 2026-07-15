@@ -1,0 +1,102 @@
+.splash-container {
+    background-color: #0f172a;
+    /* כחול-כהה עמוק */
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: #f8fafc;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    z-index: 9999;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+}
+
+.logo-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.brand-logo-img {
+    width: 180px;
+    height: auto;
+    margin-bottom: 20px;
+    filter: drop-shadow(0 0 15px rgba(56, 189, 248, 0.4));
+}
+
+.brand-name {
+    font-size: 3rem;
+    font-weight: 900;
+    letter-spacing: 4px;
+    margin: 0;
+    background: linear-gradient(135deg, #38bdf8, #818cf8, #38bdf8);
+    background-size: 200% auto;
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: shine 3s linear infinite;
+}
+
+@keyframes shine {
+    to {
+        background-position: 200% center;
+    }
+}
+
+.tagline {
+    margin-top: 10px;
+    font-size: 1.1rem;
+    font-weight: 500;
+    color: #94a3b8;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    opacity: 0.8;
+}
+
+.loading-bar {
+    width: 200px;
+    height: 4px;
+    background: #1e293b;
+    border-radius: 10px;
+    margin-top: 30px;
+    overflow: hidden;
+}
+
+.progress {
+    width: 0%;
+    height: 100%;
+    background: #38bdf8;
+    animation: loading 3s forwards;
+}
+
+@keyframes pulse {
+    0% {
+        transform: scale(1);
+        opacity: 0.8;
+    }
+
+    50% {
+        transform: scale(1.1);
+        opacity: 1;
+    }
+
+    100% {
+        transform: scale(1);
+        opacity: 0.8;
+    }
+}
+
+@keyframes loading {
+    0% {
+        width: 0%;
+    }
+
+    100% {
+        width: 100%;
+    }
+}

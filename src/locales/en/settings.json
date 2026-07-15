@@ -1,0 +1,10 @@
+{
+  "title": "Owner Settings",
+  "subtitle": "Management of connections and sensitive services",
+  "geminiSaveSuccess": "✅ Gemini key saved successfully!",
+  "grokSaveSuccess": "✅ Grok key saved successfully!",
+  "saveError": "❌ Error saving the key",
+  "comingSoon": "Coming Soon",
+  "language": "Language",
+  "languageSelection": "Language Selection"
+}

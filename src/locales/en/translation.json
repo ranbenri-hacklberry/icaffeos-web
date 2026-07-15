@@ -1,0 +1,34 @@
+{
+  "pos": {
+    "cart_title": "Smart Cart",
+    "empty_cart": "Your cart is empty",
+    "start_adding": "Add items to start your order",
+    "checkout": "Checkout",
+    "total": "Total",
+    "items": "Items",
+    "clear_cart": "Clear All",
+    "payment_method": "Payment Method",
+    "select_payment": "Select Payment Type",
+    "cash": "Cash",
+    "credit_card": "Credit Card",
+    "bit": "Bit",
+    "paybox": "Paybox",
+    "refund": "Refund",
+    "local_pos_engine": "Local POS Engine",
+    "just_synced": "Synced now",
+    "synced_ago": "{{count}}m ago"
+  },
+  "menu": {
+    "categories": "Categories",
+    "search_placeholder": "Search menu...",
+    "add_to_cart": "Add",
+    "modifiers_title": "Customize Item"
+  },
+  "common": {
+    "back": "Back",
+    "save": "Save",
+    "cancel": "Cancel",
+    "loading": "Loading...",
+    "try_again": "Try Again"
+  }
+}

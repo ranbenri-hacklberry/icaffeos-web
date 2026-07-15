@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover" />
+    <title>iCaffeOS | POS</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="manifest" href="/manifest.json" />
+    <meta name="theme-color" content="#0f172a" />
+    
+    <!-- iOS PWA Fullscreen Meta Tags -->
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="apple-mobile-web-app-title" content="iCaffeOS">
+    
+    <link rel="icon" href="/assets/images/icaffeos_icon.png" />
+    <link rel="apple-touch-icon" href="/assets/images/icaffeos_icon.png" />
+  </head>
+  <body>
+    <div id="root"></div>
+    <script>
+      // Register Service Worker for PWA Android support
+      if ('serviceWorker' in navigator) {
+        window.addEventListener('load', function() {
+          navigator.serviceWorker.register('/sw.js').then(function(registration) {
+            console.log('SW registered: ', registration.scope);
+          }, function(err) {
+            console.log('SW registration failed: ', err);
+          });
+        });
+      }
+
+      // Auto-reload on server restart: detect connection loss and reload
+      (function(){
+        var alive = true;
+        setInterval(function(){
+          fetch('/?_ping=' + Date.now(), {method:'HEAD',cache:'no-store'})
+            .then(function(){ if(!alive){ alive=true; location.reload(); } })
+            .catch(function(){ alive=false; });
+        }, 3000);
+      })();
+    </script>
+    <script type="module" src="/src/index.jsx"></script>
+  </body>
+</html>

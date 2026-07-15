@@ -1,0 +1,16 @@
+#!/usr/bin/expect -f
+# Script to sync physical music files from local MacBook to remote Mac Mini
+set password "1771"
+set timeout 1800
+
+puts "🚀 Starting rsync transfer of music files to remote Mac Mini..."
+spawn rsync -avz --progress --exclude=".*" --exclude="node_modules" --exclude=".git" /Users/user/Music/iCaffe/ icaffeos@100.67.107.59:/Users/icaffeos/Music/iCaffe/
+
+expect {
+    "*assword:*" {
+        send "$password\r"
+        exp_continue
+    }
+    eof
+}
+puts "🎉 rsync transfer completed!"
