@@ -22,7 +22,8 @@ const WS_PORT = 8082;
 // In dev: use same host as the page. On iPad: will resolve to M4 IP.
 const getWsUrl = () => {
     const host = window.location.hostname;
-    return `ws://${host}:${WS_PORT}`;
+    const protocol = window.location.protocol === 'https:' ? 'wss' : 'ws';
+    return `${protocol}://${host}:${WS_PORT}`;
 };
 
 const DEFAULT_STATE = {

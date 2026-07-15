@@ -73,8 +73,12 @@ const BackIcon = () => (
 );
 
 // WebSocket connection
-const SMS_WS_URL = 'ws://localhost:8085';
-const SMS_API_URL = 'http://localhost:8085/api/sms';
+const getSmsWsUrl = () => {
+    const protocol = window.location.protocol === 'https:' ? 'wss' : 'ws';
+    return `${protocol}://localhost:8085`;
+};
+const SMS_WS_URL = getSmsWsUrl();
+const SMS_API_URL = window.location.protocol === 'https:' ? 'https://localhost:8085/api/sms' : 'http://localhost:8085/api/sms';
 
 export default function SMSDashboard() {
     // State
