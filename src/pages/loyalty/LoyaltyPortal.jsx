@@ -92,15 +92,25 @@ export default function LoyaltyPortal() {
                 .eq('region_id', regionData.id);
 
             if (bizList && bizList.length > 0) {
-                setStores(bizList);
-                setExpandedCardId(bizList[0].id); // Expand first card on load
-                
-                // Fetch data in parallel for each store
-                bizList.forEach(biz => {
-                    fetchUserDataForBiz(biz.id);
-                    fetchPromotionsForBiz(biz.id);
-                    fetchSubscriptionStatusForBiz(biz.id);
+                // Filter approved businesses (or legacy businesses without a status set)
+                const approvedBiz = bizList.filter(biz => {
+                    const status = biz.settings?.status;
+                    return !status || status === 'approved';
                 });
+
+                setStores(approvedBiz);
+                if (approvedBiz.length > 0) {
+                    setExpandedCardId(approvedBiz[0].id); // Expand first card on load
+                    
+                    // Fetch data in parallel for each store
+                    approvedBiz.forEach(biz => {
+                        fetchUserDataForBiz(biz.id);
+                        fetchPromotionsForBiz(biz.id);
+                        fetchSubscriptionStatusForBiz(biz.id);
+                    });
+                } else {
+                    setExpandedCardId(null);
+                }
             } else {
                 setStores([]);
                 setExpandedCardId(null);

@@ -234,17 +234,18 @@ export const AuthProvider = ({ children }) => {
                             return;
                         }
 
-                        // ALWAYS fetch fresh business_name to prevent stale cache
+                        // ALWAYS fetch fresh business metadata to check status
                         if (sessionUser.business_id && navigator.onLine) {
                             try {
                                 const { data: businessData } = await supabase
                                     .from('businesses')
-                                    .select('name')
+                                    .select('name, settings')
                                     .eq('id', sessionUser.business_id)
                                     .single();
 
-                                if (businessData?.name && businessData.name !== sessionUser.business_name) {
-                                    sessionUser = { ...sessionUser, business_name: businessData.name };
+                                if (businessData) {
+                                    sessionUser.business_name = businessData.name;
+                                    sessionUser.business = businessData;
                                     localStorage.setItem('kiosk_user', JSON.stringify(sessionUser));
                                 }
                             } catch (e) {
@@ -472,16 +473,17 @@ export const AuthProvider = ({ children }) => {
         // If business_name is missing, fetch it from the database
         let enrichedEmployee = { ...employee };
 
-        if (!employee.business_name && employee.business_id) {
+        if (employee.business_id) {
             try {
                 const { data: businessData } = await supabase
                     .from('businesses')
-                    .select('name')
+                    .select('name, settings')
                     .eq('id', employee.business_id)
                     .single();
 
-                if (businessData?.name) {
+                if (businessData) {
                     enrichedEmployee.business_name = businessData.name;
+                    enrichedEmployee.business = businessData;
                 }
             } catch (e) {
                 console.warn('Could not fetch business name:', e);

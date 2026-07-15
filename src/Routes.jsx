@@ -60,9 +60,10 @@ import AdGenerator from './components/marketing/AdGenerator';
 import ProfileSettings from './pages/profile-settings';
 import AdminFixSuperAdmin from './pages/admin-fix-superadmin';
 import SMSDashboard from './components/SMSDashboard';
-import StaffDashboard from './pages/hotel/StaffDashboard';
 import HotelDashboard from './pages/hotel/HotelDashboard';
 import LandingPage from './pages/LandingPage';
+import OnboardingWizard from './pages/onboarding/OnboardingWizard';
+import VerificationPending from './pages/login/VerificationPending';
 
 
 // Wrapper for AdGenerator to provide props
@@ -132,6 +133,27 @@ const ProtectedRoute = ({ children }) => {
   }
 
   const isSuperAdmin = currentUser?.is_super_admin || currentUser?.role === 'super_admin' || currentUser?.isSuperAdmin || mayaAuth.employee?.isSuperAdmin;
+
+  // 🛡️ SECURITY GATE LOCKOUT: Check business status for standard accounts
+  if (!isSuperAdmin && currentUser?.business_id) {
+    const status = currentUser.business?.settings?.status;
+
+    if (status === 'pending_design' && location.pathname !== '/setup') {
+      console.log('🛡️ [ProtectedRoute] Business pending design. Redirecting to setup.');
+      return <Navigate to={`/setup?business_id=${currentUser.business_id}`} replace />;
+    }
+
+    if (status === 'pending_admin_approval' && location.pathname !== '/verification-pending') {
+      console.log('🛡️ [ProtectedRoute] Business pending admin approval. Redirecting to verification page.');
+      return <Navigate to="/verification-pending" replace />;
+    }
+
+    if (status === 'approved' && (location.pathname === '/verification-pending' || location.pathname === '/setup')) {
+      console.log('🛡️ [ProtectedRoute] Business approved. Redirecting away from setup/verification.');
+      return <Navigate to="/" replace />;
+    }
+  }
+
   const isSuperAdminPath = location.pathname.startsWith('/super-admin');
 
   // 👑 SUPER ADMIN REDIRECT: If super admin lands on root '/', send them to their portal
@@ -239,6 +261,16 @@ const AppRoutes = () => {
       <Route path="/complete-profile" element={<CompleteProfile />} />
       <Route path="/face-scanner-test" element={<PageTransition><FaceScannerTest /></PageTransition>} />
       <Route path="/admin/enroll-face" element={<PageTransition><EnrollFace /></PageTransition>} />
+      <Route path="/setup" element={
+        <ProtectedRoute>
+          <OnboardingWizard />
+        </ProtectedRoute>
+      } />
+      <Route path="/verification-pending" element={
+        <ProtectedRoute>
+          <VerificationPending />
+        </ProtectedRoute>
+      } />
       <Route path="/admin" element={<Navigate to="/login" replace />} />
       <Route path="/manager" element={<Navigate to="/login" replace />} />
       <Route path="/super-admin" element={
