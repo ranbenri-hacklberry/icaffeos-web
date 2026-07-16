@@ -97,52 +97,51 @@ export default function LandingPage() {
         </div>
       </section>
 
-      {/* 3. The Contrast Section (Comparison) */}
-      <section className="max-w-5xl mx-auto px-6 py-20 border-t border-stone-900/50">
-        <h2 className="text-3xl font-bold text-center mb-12">למה icaffeOS משאירה אבק למערכות הישנות?</h2>
-        
-        <div className="grid md:grid-cols-2 gap-8">
-          {/* Old World */}
-          <div className="bg-[#181715]/50 border border-stone-900 p-8 rounded-2xl">
-            <h3 className="text-xl font-bold text-red-400 mb-6 flex items-center gap-2">
-              <span>❌</span> מה שיש להם היום (העולם הישן)
+      {/* 3. Time Machine Section (Comparison) */}
+      <section className="max-w-5xl mx-auto px-4 md:px-6 py-20 border-t border-stone-900/50 text-center">
+        <h2 className="text-3xl md:text-4xl font-extrabold text-white mb-4">כנסו למכונת הזמן: איך נראה מועדון הלקוחות שלכם בעתיד?</h2>
+        <p className="text-stone-400 max-w-2xl mx-auto mb-12 text-sm md:text-base leading-relaxed">
+          הודעות ה-SMS הומצאו ב-1992 (כן, עוד במאה הקודמת). אז למה העסק שלכם עדיין משלם עליהן הון ב-2026? הגיע הזמן לעשות קפיצה קטנה קדימה ולגלות איך נראה הדלפק שלכם כשמפסיקים לחיות בעבר:
+        </p>
+
+        <div className="grid grid-cols-2 gap-3 md:gap-8 w-full text-right">
+          
+          {/* Column 1: Year 1992 (Old World) */}
+          <div className="bg-[#eeebd9] text-stone-900 border border-stone-300 rounded-3xl p-4 md:p-8 flex flex-col gap-4 shadow-[inset_0_2px_4px_rgba(0,0,0,0.06)]">
+            <h3 className="text-amber-800 font-black text-sm md:text-xl border-b border-stone-400/40 pb-3 flex items-center gap-1.5">
+              <span>📅</span> שנת 1992 (העולם הישן)
             </h3>
-            <ul className="space-y-4 text-stone-400 text-sm md:text-base">
-              <li className="flex gap-2">
-                <span className="text-red-500/70">•</span>
-                <span><strong>אפליקציות מציקות:</strong> הלקוחות מסרבים להוריד עוד אפליקציה שתתפוס להם מקום בטלפון.</span>
-              </li>
-              <li className="flex gap-2">
-                <span className="text-red-500/70">•</span>
-                <span><strong>עמלות סמס שוחטות:</strong> משלמים עשרות אגורות על כל הודעה קטנה, קוד אישור או הצטרפות.</span>
-              </li>
-              <li className="flex gap-2">
-                <span className="text-red-500/70">•</span>
-                <span><strong>חומרה יקרה ומסובכת:</strong> צורך לקנות טאבלטים מיוחדים, להריץ כבלים ולסבך את הקופאים בשיא הלחץ.</span>
-              </li>
-            </ul>
+            <div className="text-[11px] md:text-sm text-stone-700 space-y-4 font-medium leading-relaxed">
+              <p>
+                <strong>הסיוט של הכרטיסיות האבודות:</strong> הלקוח שכח את כרטיסיית הנייר באוטו, ואתם מאלתרים פתרונות או נותנים קפה חינם. שלא לדבר על הבריסטה שמחלק ניקובים לחברים שלו "על יבש".
+              </p>
+              <p>
+                <strong>מס ה-SMS השוחט:</strong> משלמים מנוי יקר + חבילות SMS מוגבלות. ככל שאתם גדלים ומביאים יותר לקוחות – חברות התוכנה קונסות אתכם ביותר כסף על הודעות.
+              </p>
+              <p>
+                <strong>הברזלים והכבלים בקופה:</strong> דמי הקמה מטורפים, טאבלטים ייעודיים שלוקחים מקום יקר ויסבכו את הצוות שלכם בשיא הלחץ של הבוקר.
+              </p>
+            </div>
+          </div>
+          
+          {/* Column 2: Year 2026 (icaffeOS) */}
+          <div className="bg-stone-950/70 text-stone-100 border border-amber-500/30 rounded-3xl p-4 md:p-8 flex flex-col gap-4 shadow-[0_16px_32px_rgba(245,158,11,0.08)]">
+            <h3 className="text-amber-400 font-black text-sm md:text-xl border-b border-stone-850 pb-3 flex items-center gap-1.5">
+              <span>🚀</span> שנת 2026 (icaffeOS)
+            </h3>
+            <div className="text-[11px] md:text-sm text-stone-300 space-y-4 font-normal leading-relaxed">
+              <p>
+                <strong>הכרטיסייה קבוע בתוך הטלפון:</strong> סריקה מהירה של קוד ה-QR בקופה והכרטיסייה עולה ישירות על מסך הבית. כל הניקובים מאובטחים, מהירים ובלי קומבינות בקופה.
+              </p>
+              <p>
+                <strong>הודעות פוש ללא הגבלה ובמחיר פיקס:</strong> <strong>2 באחד</strong> – כרטיסייה ומערכת הודעות. שולחים פושים ל-5,000 איש בחינם והעלות היא תמיד <strong>200 ₪ בחודש וזהו</strong>.
+              </p>
+              <p>
+                <strong>אפס חומרה, אפס דמי הקמה:</strong> בלי מכשירים חדשים ובלי דמי התקנה מומצאים. המערכת ממותגת בלוגו ובצבעים שלכם, ועובדת מהנייד שכבר יש בעסק.
+              </p>
+            </div>
           </div>
 
-          {/* New World */}
-          <div className="bg-amber-950/10 border border-amber-900/30 p-8 rounded-2xl shadow-xl shadow-amber-950/5">
-            <h3 className="text-xl font-bold text-amber-400 mb-6 flex items-center gap-2">
-              <span>🚀</span> הפיצוח של icaffeOS
-            </h3>
-            <ul className="space-y-4 text-stone-300 text-sm md:text-base">
-              <li className="flex gap-2">
-                <span className="text-amber-500">•</span>
-                <span><strong>אפליקציה אחת, כל המועדונים:</strong> הלקוחות פותחים את הארנק האזורי הדיגיטלי ומוצאים את הכרטיס המעוצב שלך מיד.</span>
-              </li>
-              <li className="flex gap-2">
-                <span className="text-amber-500">•</span>
-                <span><strong>מיתוג אישי מלא (White Label):</strong> שליטה מלאה בצבעי המותג, בלוגו ובחוקים (ניקוב קפה או הטבות ישירות).</span>
-              </li>
-              <li className="flex gap-2">
-                <span className="text-amber-500">•</span>
-                <span><strong>מודל Flat Fee פשוט:</strong> תשלום חודשי קבוע וקליל. בלי אחוזים, בלי אותיות קטנות ובלי הפתעות בחשבון.</span>
-              </li>
-            </ul>
-          </div>
         </div>
       </section>
 
