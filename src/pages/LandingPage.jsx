@@ -151,115 +151,136 @@ export default function LandingPage() {
           <div className="lg:col-span-5 flex flex-col gap-6 items-center">
             
             {/* Simulators Container */}
-            <div className="flex flex-col sm:flex-row gap-6 items-center justify-center w-full max-w-[480px] lg:max-w-none">
+            <div className="flex items-end justify-center gap-2 sm:gap-6 w-full max-w-[460px] mx-auto select-none">
               
-              {/* Nokia retro simulator */}
-              <div className="w-[180px] bg-stone-800 rounded-[28px] border-4 border-stone-700 p-3 flex flex-col items-center shadow-2xl relative select-none">
-                {/* Nokia Brand text */}
-                <div className="text-[9px] font-mono tracking-widest text-stone-500 font-bold mb-1.5">NOKIA</div>
-                
-                {/* Screen */}
-                <div className="w-full h-32 bg-[#8da781] border-2 border-stone-900 rounded-md p-2 font-mono text-stone-950 text-[10px] leading-tight flex flex-col justify-between shadow-inner">
-                  <div>
-                    <div className="flex justify-between border-b border-stone-900/40 pb-0.5 mb-1 font-bold text-[8px]">
-                      <span>[1] SMS</span>
-                      <span>052-9999999</span>
-                    </div>
-                    <p className="font-semibold text-stone-900/90 leading-tight">
-                      Mivtza: 10% hanacha al kol hamafim. Lehasara hashev haser.
-                    </p>
-                  </div>
-                  <div className="text-[7px] text-stone-900/60 text-left border-t border-stone-900/30 pt-0.5">
-                    1992 - SMS יבש ומנוכר
-                  </div>
+              {/* Right column: SMS */}
+              <div className="flex flex-col items-center flex-1">
+                <div className="text-center mb-3">
+                  <span className="block text-base sm:text-lg font-black text-stone-500 leading-tight">SMS</span>
+                  <span className="block text-base sm:text-lg font-black text-stone-500 leading-tight">מיושן</span>
                 </div>
-                
-                {/* Nokia Keypad grid */}
-                <div className="w-full mt-4 px-1 space-y-1.5">
-                  {/* Menu / Select keys */}
-                  <div className="grid grid-cols-3 gap-1.5 px-1">
-                    <div className="h-2 bg-stone-700 rounded-sm"></div>
-                    <div className="h-3 bg-stone-600 rounded-sm col-span-1"></div>
-                    <div className="h-2 bg-stone-700 rounded-sm"></div>
+                {/* Nokia retro simulator */}
+                <div className="w-[125px] sm:w-[155px] bg-stone-800 rounded-[24px] border-[3px] border-stone-700 p-2.5 flex flex-col items-center shadow-lg">
+                  {/* Nokia Brand text */}
+                  <div className="text-[7px] font-mono tracking-widest text-stone-500 font-bold mb-1">NOKIA</div>
+                  
+                  {/* Screen */}
+                  <div className="w-full h-24 bg-[#8da781] border border-stone-900 rounded p-1.5 font-mono text-stone-950 text-[7.5px] leading-tight flex flex-col justify-between shadow-inner">
+                    <div>
+                      <div className="flex justify-between border-b border-stone-900/30 pb-0.5 mb-1 font-bold text-[6px]">
+                        <span>[1] SMS</span>
+                        <span>052-9999999</span>
+                      </div>
+                      <p className="font-bold text-stone-900/90 leading-tight text-[7px] text-right" dir="rtl">
+                        מבצע בקפה: 10% הנחה על כל המאפים! להסרה השב הסר.
+                      </p>
+                    </div>
+                    <div className="text-[5.5px] text-stone-900/60 text-center border-t border-stone-900/30 pt-0.5">
+                      1992
+                    </div>
                   </div>
-                  {/* Call keys */}
-                  <div className="grid grid-cols-2 gap-4 px-1">
-                    <div className="h-2 bg-green-900/40 border border-green-800/40 rounded-sm"></div>
-                    <div className="h-2 bg-red-900/40 border border-red-800/40 rounded-sm"></div>
-                  </div>
-                  {/* Number pad */}
-                  <div className="grid grid-cols-3 gap-1.5 pt-1 text-[8px] font-mono text-stone-500 text-center">
-                    <div className="bg-stone-900/40 h-4 rounded-sm flex items-center justify-center">1</div>
-                    <div className="bg-stone-900/40 h-4 rounded-sm flex items-center justify-center">2</div>
-                    <div className="bg-stone-900/40 h-4 rounded-sm flex items-center justify-center">3</div>
-                    <div className="bg-stone-900/40 h-4 rounded-sm flex items-center justify-center">4</div>
-                    <div className="bg-stone-900/40 h-4 rounded-sm flex items-center justify-center">5</div>
-                    <div className="bg-stone-900/40 h-4 rounded-sm flex items-center justify-center">6</div>
-                    <div className="bg-stone-900/40 h-4 rounded-sm flex items-center justify-center">7</div>
-                    <div className="bg-stone-900/40 h-4 rounded-sm flex items-center justify-center">8</div>
-                    <div className="bg-stone-900/40 h-4 rounded-sm flex items-center justify-center">9</div>
-                    <div className="bg-stone-900/40 h-4 rounded-sm flex items-center justify-center">*</div>
-                    <div className="bg-stone-900/40 h-4 rounded-sm flex items-center justify-center">0</div>
-                    <div className="bg-stone-900/40 h-4 rounded-sm flex items-center justify-center">#</div>
+                  
+                  {/* Nokia Keypad grid */}
+                  <div className="w-full mt-2.5 px-0.5 space-y-1">
+                    {/* Menu / Select keys */}
+                    <div className="grid grid-cols-3 gap-1 px-0.5">
+                      <div className="h-1 bg-stone-700 rounded-sm"></div>
+                      <div className="h-1.5 bg-stone-600 rounded-sm"></div>
+                      <div className="h-1 bg-stone-700 rounded-sm"></div>
+                    </div>
+                    {/* Call keys */}
+                    <div className="grid grid-cols-2 gap-3 px-0.5">
+                      <div className="h-1 bg-green-950/40 border border-green-800/40 rounded-sm"></div>
+                      <div className="h-1 bg-red-950/40 border border-red-800/40 rounded-sm"></div>
+                    </div>
+                    {/* Number pad */}
+                    <div className="grid grid-cols-3 gap-1 pt-0.5 text-[6px] font-mono text-stone-500 text-center">
+                      <div className="bg-stone-900/40 h-3 rounded-sm flex items-center justify-center">1</div>
+                      <div className="bg-stone-900/40 h-3 rounded-sm flex items-center justify-center">2</div>
+                      <div className="bg-stone-900/40 h-3 rounded-sm flex items-center justify-center">3</div>
+                      <div className="bg-stone-900/40 h-3 rounded-sm flex items-center justify-center">4</div>
+                      <div className="bg-stone-900/40 h-3 rounded-sm flex items-center justify-center">5</div>
+                      <div className="bg-stone-900/40 h-3 rounded-sm flex items-center justify-center">6</div>
+                      <div className="bg-stone-900/40 h-3 rounded-sm flex items-center justify-center">7</div>
+                      <div className="bg-stone-900/40 h-3 rounded-sm flex items-center justify-center">8</div>
+                      <div className="bg-stone-900/40 h-3 rounded-sm flex items-center justify-center">9</div>
+                      <div className="bg-stone-900/40 h-3 rounded-sm flex items-center justify-center">*</div>
+                      <div className="bg-stone-900/40 h-3 rounded-sm flex items-center justify-center">0</div>
+                      <div className="bg-stone-900/40 h-3 rounded-sm flex items-center justify-center">#</div>
+                    </div>
                   </div>
                 </div>
               </div>
 
-              {/* iPhone modern simulator */}
-              <div className="w-[230px] h-[370px] bg-stone-950 rounded-[40px] border-[5px] border-stone-800 p-2.5 flex flex-col relative shadow-2xl overflow-hidden select-none">
-                {/* Dynamic island */}
-                <div className="absolute top-1.5 left-1/2 transform -translate-x-1/2 w-20 h-3.5 bg-black rounded-full z-20"></div>
-                
-                {/* Screen content (Wallpaper style lockscreen) */}
-                <div className="w-full h-full rounded-[32px] bg-gradient-to-b from-[#211610] to-[#0d0907] p-2 flex flex-col justify-between relative overflow-hidden">
+              {/* Middle VS */}
+              <div className="flex items-center justify-center px-1 pb-24">
+                <span className="bg-amber-600/10 text-amber-500 border border-amber-600/20 text-[9px] font-black px-1.5 py-0.5 rounded-full uppercase tracking-wider">
+                  vs
+                </span>
+              </div>
+
+              {/* Left column: Push */}
+              <div className="flex flex-col items-center flex-1">
+                <div className="text-center mb-3">
+                  <span className="block text-base sm:text-lg font-black text-amber-500 leading-tight">פוש</span>
+                  <span className="block text-base sm:text-lg font-black text-amber-500 leading-tight">ממותג</span>
+                </div>
+                {/* iPhone modern simulator */}
+                <div className="w-[160px] sm:w-[190px] h-[260px] sm:h-[310px] bg-stone-950 rounded-[28px] border-[4px] border-stone-800 p-2 flex flex-col relative shadow-xl overflow-hidden">
+                  {/* Dynamic island */}
+                  <div className="absolute top-1 left-1/2 transform -translate-x-1/2 w-14 h-2.5 bg-black rounded-full z-20"></div>
                   
-                  {/* Top clock */}
-                  <div className="text-center mt-3">
-                    <span className="text-2xl font-light text-stone-200/90 font-sans tracking-tight">09:41</span>
-                  </div>
-
-                  {/* Floating Rich Push notification */}
-                  <div className="bg-amber-500/[0.04] border border-amber-500/25 rounded-2xl p-2.5 text-stone-200 text-right shadow-lg backdrop-blur-md">
-                    <div className="flex justify-between items-center mb-1.5">
-                      <span className="text-[8px] text-amber-400 font-bold bg-amber-500/10 px-1.5 py-0.5 rounded-full">2026</span>
-                      <div className="flex items-center gap-1.5">
-                        <span className="text-[9px] font-bold text-amber-400">icaffeOS</span>
-                        <img src="/rainbow_cup.png" alt="Logo" className="w-3.5 h-3.5 object-contain" />
-                      </div>
-                    </div>
+                  {/* Screen content */}
+                  <div className="w-full h-full rounded-[22px] bg-gradient-to-b from-[#211610] to-[#0d0907] p-1.5 flex flex-col justify-between relative overflow-hidden">
                     
-                    <div className="bg-stone-900/80 p-2 rounded-xl border border-stone-850">
-                      <div className="text-[9px] font-black text-white mb-0.5">סופש מפנק בדרך אליך! 🥐☕</div>
-                      <p className="text-[8px] text-stone-300 leading-normal">
-                        המאפים החמים שלנו מחכים לך ב-25% הנחה מיוחדת לחברי מועדון.
-                      </p>
-                      
-                      {/* Embedded Image in Push */}
-                      <img 
-                        src="/assets/seed_cup_coffee.png" 
-                        alt="Coffee" 
-                        className="w-full h-16 object-cover rounded-lg my-1.5 border border-stone-800"
-                      />
+                    {/* Top clock */}
+                    <div className="text-center mt-1">
+                      <span className="text-sm font-light text-stone-200/90 font-sans tracking-tight">09:41</span>
+                    </div>
 
-                      <div className="flex gap-1 justify-end">
-                        <span className="text-[8px] font-bold px-2 py-1 bg-amber-600 text-stone-950 rounded-md">
-                          פתח כרטיסייה 📲
-                        </span>
-                        <span className="text-[8px] font-bold px-2 py-1 bg-stone-800 text-stone-300 rounded-md">
-                          למבצעים 🎁
-                        </span>
+                    {/* Floating Rich Push notification */}
+                    <div className="bg-amber-500/[0.04] border border-amber-500/25 rounded-xl p-1.5 text-stone-200 text-right shadow-md backdrop-blur-sm">
+                      <div className="flex justify-between items-center mb-1">
+                        <span className="text-[6px] text-amber-400 font-bold bg-amber-500/10 px-1 py-0.2 rounded-full">2026</span>
+                        <div className="flex items-center gap-1">
+                          <span className="text-[7px] font-bold text-amber-400">icaffeOS</span>
+                          <img src="/rainbow_cup.png" alt="Logo" className="w-2.5 h-2.5 object-contain" />
+                        </div>
+                      </div>
+                      
+                      <div className="bg-stone-900/80 p-1.5 rounded-lg border border-stone-850">
+                        <div className="text-[7px] font-black text-white mb-0.5">סופש מפנק בדרך אליך! 🥐☕</div>
+                        <p className="text-[6px] text-stone-300 leading-normal">
+                          המאפים החמים מחכים לך ב-25% הנחה.
+                        </p>
+                        
+                        {/* Embedded Image in Push */}
+                        <img 
+                          src="/assets/seed_cup_coffee.png" 
+                          alt="Coffee" 
+                          className="w-full h-10 object-cover rounded my-1 border border-stone-800"
+                        />
+
+                        <div className="flex gap-1 justify-end">
+                          <span className="text-[6px] font-bold px-1 py-0.5 bg-amber-600 text-stone-950 rounded-sm">
+                            כנס 📲
+                          </span>
+                          <span className="text-[6px] font-bold px-1 py-0.5 bg-stone-800 text-stone-300 rounded-sm">
+                            הטבות 🎁
+                          </span>
+                        </div>
                       </div>
                     </div>
-                  </div>
 
-                  {/* Bottom bar indicator */}
-                  <div className="w-16 h-1 bg-white/40 rounded-full mx-auto mb-1"></div>
+                    {/* Bottom bar indicator */}
+                    <div className="w-12 h-0.5 bg-white/40 rounded-full mx-auto mb-0.5"></div>
+                  </div>
                 </div>
               </div>
 
             </div>
             
-            <span className="text-xs text-stone-500 mt-1">מימין: הודעת סמס משנות ה-90 | משמאל: פוש ממותג של icaffeOS</span>
+            <span className="text-xs text-stone-500 mt-2 text-center">מימין: הודעת סמס משנות ה-90 | משמאל: פוש ממותג של icaffeOS</span>
           </div>
 
           {/* Column 2: Economic Table (7 columns out of 12) */}
