@@ -151,14 +151,10 @@ export default function LandingPage() {
           <div className="lg:col-span-5 flex flex-col gap-6 items-center">
             
             {/* Simulators Container */}
-            <div className="flex items-end justify-center gap-2 sm:gap-6 w-full max-w-[460px] mx-auto select-none">
+            <div className="flex items-end justify-center gap-2 sm:gap-6 w-full max-w-[460px] mx-auto select-none pt-4">
               
               {/* Right column: SMS */}
               <div className="flex flex-col items-center flex-1">
-                <div className="text-center mb-3">
-                  <span className="block text-base sm:text-lg font-black text-stone-500 leading-tight">SMS</span>
-                  <span className="block text-base sm:text-lg font-black text-stone-500 leading-tight">מיושן</span>
-                </div>
                 {/* Nokia retro simulator */}
                 <div className="w-[125px] sm:w-[155px] bg-stone-800 rounded-[24px] border-[3px] border-stone-700 p-2.5 flex flex-col items-center shadow-lg">
                   {/* Nokia Brand text */}
@@ -172,7 +168,7 @@ export default function LandingPage() {
                         <span>052-9999999</span>
                       </div>
                       <p className="font-bold text-stone-900/90 leading-tight text-[7px] text-right" dir="rtl">
-                        מבצע בקפה: 10% הנחה על כל המאפים! להסרה השב הסר.
+                        מבצע סופ"ש: 25% הנחה על כל המאפים! להסרה השב הסר.
                       </p>
                     </div>
                     <div className="text-[5.5px] text-stone-900/60 text-center border-t border-stone-900/30 pt-0.5">
@@ -213,7 +209,7 @@ export default function LandingPage() {
               </div>
 
               {/* Middle VS */}
-              <div className="flex items-center justify-center px-1 pb-24">
+              <div className="flex items-center justify-center px-1 pb-16">
                 <span className="bg-amber-600/10 text-amber-500 border border-amber-600/20 text-[9px] font-black px-1.5 py-0.5 rounded-full uppercase tracking-wider">
                   vs
                 </span>
@@ -221,10 +217,6 @@ export default function LandingPage() {
 
               {/* Left column: Push */}
               <div className="flex flex-col items-center flex-1">
-                <div className="text-center mb-3">
-                  <span className="block text-base sm:text-lg font-black text-amber-500 leading-tight">פוש</span>
-                  <span className="block text-base sm:text-lg font-black text-amber-500 leading-tight">ממותג</span>
-                </div>
                 {/* iPhone modern simulator */}
                 <div className="w-[160px] sm:w-[190px] h-[260px] sm:h-[310px] bg-stone-950 rounded-[28px] border-[4px] border-stone-800 p-2 flex flex-col relative shadow-xl overflow-hidden">
                   {/* Dynamic island */}
@@ -249,9 +241,9 @@ export default function LandingPage() {
                       </div>
                       
                       <div className="bg-stone-900/80 p-1.5 rounded-lg border border-stone-850">
-                        <div className="text-[7px] font-black text-white mb-0.5">סופש מפנק בדרך אליך! 🥐☕</div>
+                        <div className="text-[7px] font-black text-white mb-0.5">מבצע סופ"ש: 25% הנחה על כל המאפים! 🥐☕</div>
                         <p className="text-[6px] text-stone-300 leading-normal">
-                          המאפים החמים מחכים לך ב-25% הנחה.
+                          המאפים החמים שלנו מחכים לך בהנחה מטורפת של 25%.
                         </p>
                         
                         {/* Embedded Image in Push */}
@@ -279,8 +271,6 @@ export default function LandingPage() {
               </div>
 
             </div>
-            
-            <span className="text-xs text-stone-500 mt-2 text-center">מימין: הודעת סמס משנות ה-90 | משמאל: פוש ממותג של icaffeOS</span>
           </div>
 
           {/* Column 2: Economic Table (7 columns out of 12) */}
