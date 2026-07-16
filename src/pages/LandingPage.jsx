@@ -54,7 +54,7 @@ export default function LandingPage() {
     <div className="min-h-screen bg-[#121110] text-[#f4f1ed] font-sans selection:bg-amber-700/30 selection:text-amber-400" dir="rtl">
       
       {/* 1. Header / Navigation */}
-      <header className="max-w-6xl mx-auto px-6 py-6 flex justify-between items-center border-b border-stone-900">
+      <header className="max-w-6xl mx-auto px-6 py-4 md:py-6 flex justify-between items-center border-b border-stone-900">
         <div className="flex items-center gap-3">
           <span className="text-2xl">☕</span>
           <span className="text-xl font-bold tracking-wider text-amber-500">icaffeOS</span>
@@ -70,14 +70,13 @@ export default function LandingPage() {
       </header>
 
       {/* 2. Hero Section */}
-      <section className="max-w-4xl mx-auto px-6 pt-20 pb-16 text-center">
-        <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-amber-500/10 border border-amber-500/20 text-amber-400 text-sm mb-8 animate-pulse">
-          <span>✨</span> מועדון הלקוחות של העולם החדש
-        </div>
+      <section className="max-w-4xl mx-auto px-6 pt-8 md:pt-20 pb-12 md:pb-16 text-center">
         
-        <h1 className="text-4xl md:text-6xl font-extrabold tracking-tight mb-6 leading-tight">
-          מועדון לקוחות שעובד בשבילכם. <br />
-          <span className="text-transparent bg-clip-text bg-gradient-to-r from-amber-400 to-amber-600">
+        <h1 className="text-[28px] sm:text-4xl md:text-6xl font-extrabold tracking-tight mb-6 leading-tight md:leading-none">
+          <span className="block sm:inline">מועדון לקוחות </span>
+          <span className="block sm:inline">שעובד בשבילכם.</span>
+          <br className="hidden sm:inline" />
+          <span className="block sm:inline-block text-[21px] sm:text-[inherit] text-transparent bg-clip-text bg-gradient-to-r from-amber-400 to-amber-600 mt-2 sm:mt-0">
             לא בשביל חברות ה-SMS.
           </span>
         </h1>
