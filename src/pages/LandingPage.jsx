@@ -487,7 +487,7 @@ export default function LandingPage() {
               <label className="block text-sm font-medium text-stone-400 mb-1">קוד הפעלה מיידית (אופציונלי)</label>
               <input 
                 type="text" 
-                placeholder="2102 להפעלה מיידית ומעבר לעריכת הכרטיס"
+                placeholder="קוד הפעלה (במידה וקיים)"
                 value={activationCode}
                 onChange={(e) => setActivationCode(e.target.value)}
                 className="w-full px-4 py-3 rounded-lg bg-[#121110] border border-stone-800 text-white placeholder-stone-600 focus:outline-none focus:border-amber-500 transition"
