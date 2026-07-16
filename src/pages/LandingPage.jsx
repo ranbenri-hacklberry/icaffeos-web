@@ -74,7 +74,7 @@ export default function LandingPage() {
         </h1>
         
         <p className="text-lg md:text-xl text-stone-400 max-w-3xl mx-auto mb-10 leading-relaxed">
-          הגיע הזמן להתקדם לפתרון שמשלב את כל מה שהעסק שלכם צריך. icaffeOS מביאה לכם 2 במחיר 1: כרטיסיית ניקובים דיגיטלית קלה לתפעול, פלוס מערכת מועדון לקוחות שמאפשרת לכם לשלוח מבצעים והטבות ישירות למסך הבית של הלקוחות שלכם. הכל מעוצב לפי המותג, הצבעים והלוגו שלכם, בלי דמי הקמה ובלי הגבלה על כמות ההודעות. רק 200 ₪ בחודש פיקס – גם אם יש לכם 5,000 לקוחות שמקבלים עדכון שבועי.
+          הגיע הזמן להתקדם לפתרון שמשלב את כל מה שהעסק שלכם צריך. icaffeOS מביאה לכם 2 במחיר 1: כרטיסיית ניקובים דיגיטלית קלה לתפעול, פלוס מערכת מועדון לקוחות שמאפשרת לכם לשלוח מבצעים והטבות ישירות למסך הבית של הלקוחות שלכם. הכל מעוצב לפי המותג, הצבעים והלוגו שלכם, בלי דמי הקמה ובלי הגבלה על כמות ההודעות.
         </p>
 
         <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
@@ -91,7 +91,7 @@ export default function LandingPage() {
       {/* 3. Time Machine Section (Comparison) */}
       <section className="max-w-5xl mx-auto px-4 md:px-6 py-20 border-t border-stone-900/50 text-center">
         <h2 className="text-3xl md:text-4xl font-extrabold text-white mb-4">כנסו למכונת הזמן: איך נראה מועדון הלקוחות שלכם בעתיד?</h2>
-        <p className="text-stone-400 max-w-2xl mx-auto mb-12 text-sm md:text-base leading-relaxed">
+        <p className="text-stone-400 max-w-2xl mx-auto mb-12 text-base md:text-lg leading-relaxed">
           הודעות ה-SMS הומצאו ב-1992 (כן, עוד במאה הקודמת). אז למה העסק שלכם עדיין משלם עליהן הון ב-2026? הגיע הזמן לעשות קפיצה קטנה קדימה ולגלות איך נראה הדלפק שלכם כשמפסיקים לחיות בעבר:
         </p>
 
@@ -120,7 +120,7 @@ export default function LandingPage() {
             <h3 className="text-amber-400 font-black text-sm md:text-xl border-b border-stone-850 pb-3 flex items-center gap-1.5">
               <span>🚀</span> שנת 2026 (icaffeOS)
             </h3>
-            <div className="text-[11px] md:text-sm text-stone-300 space-y-4 font-normal leading-relaxed">
+            <div className="text-[11px] md:text-sm text-stone-300 space-y-4 font-semibold leading-relaxed">
               <p>
                 <strong>הכרטיסייה קבוע בתוך הטלפון:</strong> סריקה מהירה של קוד ה-QR בקופה והכרטיסייה עולה ישירות על מסך הבית. כל הניקובים מאובטחים, מהירים ובלי קומבינות בקופה.
               </p>
