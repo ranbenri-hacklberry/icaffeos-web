@@ -64,6 +64,7 @@ import HotelDashboard from './pages/hotel/HotelDashboard';
 import StaffDashboard from './pages/hotel/StaffDashboard';
 import LandingPage from './pages/LandingPage';
 import OnboardingWizard from './pages/onboarding/OnboardingWizard';
+import LoyaltyManager from './pages/loyalty/LoyaltyManager';
 import VerificationPending from './pages/login/VerificationPending';
 
 
@@ -85,6 +86,10 @@ const HomeRouteSelector = () => {
   const isMayaAuthenticated = authState === 'AUTHORIZED' && employee;
 
   if (currentUser || isMayaAuthenticated) {
+    const isLoyaltyOnly = currentUser?.business?.settings?.club_type;
+    if (isLoyaltyOnly) {
+      return <Navigate to="/loyalty-manager" replace />;
+    }
     if (deviceMode === 'kds') return <Navigate to="/kds" replace />;
     if (deviceMode === 'manager') return <Navigate to="/data-manager-interface" replace />;
     if (deviceMode === 'music') return <Navigate to="/music" replace />;
@@ -138,6 +143,7 @@ const ProtectedRoute = ({ children }) => {
   // 🛡️ SECURITY GATE LOCKOUT: Check business status for standard accounts
   if (!isSuperAdmin && currentUser?.business_id) {
     const status = currentUser.business?.settings?.status;
+    const isLoyaltyOnly = currentUser.business?.settings?.club_type;
 
     if (status === 'pending_design' && location.pathname !== '/setup') {
       console.log('🛡️ [ProtectedRoute] Business pending design. Redirecting to setup.');
@@ -149,9 +155,24 @@ const ProtectedRoute = ({ children }) => {
       return <Navigate to="/verification-pending" replace />;
     }
 
-    if (status === 'approved' && (location.pathname === '/verification-pending' || location.pathname === '/setup')) {
-      console.log('🛡️ [ProtectedRoute] Business approved. Redirecting away from setup/verification.');
-      return <Navigate to="/" replace />;
+    if (status === 'approved') {
+      if (isLoyaltyOnly) {
+        if (
+          location.pathname === '/verification-pending' ||
+          location.pathname === '/setup' ||
+          location.pathname === '/mode-selection' ||
+          location.pathname === '/' ||
+          location.pathname === '/menu-ordering-interface'
+        ) {
+          console.log('🛡️ [ProtectedRoute] Loyalty-only business approved. Redirecting to loyalty-manager.');
+          return <Navigate to="/loyalty-manager" replace />;
+        }
+      } else {
+        if (location.pathname === '/verification-pending' || location.pathname === '/setup') {
+          console.log('🛡️ [ProtectedRoute] Business approved. Redirecting away from setup/verification.');
+          return <Navigate to="/" replace />;
+        }
+      }
     }
   }
 
@@ -433,6 +454,12 @@ const AppRoutes = () => {
       <Route path="/onboarding" element={
         <ProtectedRoute>
           <WizardLayout />
+        </ProtectedRoute>
+      } />
+
+      <Route path="/loyalty-manager" element={
+        <ProtectedRoute>
+          <LoyaltyManager />
         </ProtectedRoute>
       } />
 

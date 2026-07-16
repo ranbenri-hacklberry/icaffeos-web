@@ -477,7 +477,7 @@ export const AuthProvider = ({ children }) => {
             try {
                 const { data: businessData } = await supabase
                     .from('businesses')
-                    .select('name, settings')
+                    .select('name, settings, brand_color, logo_url, has_stamps, stamp_limit, stamp_icon')
                     .eq('id', employee.business_id)
                     .single();
 
