@@ -1,8 +1,10 @@
 import React, { useState, useEffect } from 'react';
 import { createClient } from '@supabase/supabase-js';
+import { useSearchParams } from 'react-router-dom';
 import { useLocationCluster } from '../../hooks/useLocationCluster';
 import RegionSelectorOverride from '../../components/RegionSelectorOverride';
 import PushNotificationManager from '../../components/PushNotificationManager';
+import VerificationPending from '../login/VerificationPending';
 
 // Initialize local Supabase
 const supabaseUrl = import.meta.env.VITE_LOCAL_SUPABASE_URL || 'http://127.0.0.1:54321';
@@ -10,6 +12,9 @@ const supabaseKey = import.meta.env.VITE_LOCAL_SUPABASE_ANON_KEY || 'sb_publisha
 const supabase = createClient(supabaseUrl, supabaseKey);
 
 export default function LoyaltyPortal() {
+    const [searchParams] = useSearchParams();
+    const targetBizId = searchParams.get('business_id');
+
     const { selectedRegion, loading: locationLoading } = useLocationCluster();
     const currentRegion = selectedRegion?.name;
     const [isAuthenticated, setIsAuthenticated] = useState(false);
@@ -18,6 +23,10 @@ export default function LoyaltyPortal() {
     const [isOtpSent, setIsOtpSent] = useState(false);
     const [authLoading, setAuthLoading] = useState(false);
     const [authError, setAuthError] = useState('');
+    
+    // Security Gate State
+    const [isApproved, setIsApproved] = useState(true);
+    const [checkingStatus, setCheckingStatus] = useState(false);
     
     // User Data
     const [userId, setUserId] = useState('');
@@ -34,6 +43,40 @@ export default function LoyaltyPortal() {
     const [expandedCardId, setExpandedCardId] = useState(null);
     const [showRegionSelector, setShowRegionSelector] = useState(false);
     const [showBarcodeModal, setShowBarcodeModal] = useState(false);
+
+    // Check target business approval status if specified
+    useEffect(() => {
+        if (targetBizId) {
+            const checkStatus = async () => {
+                setCheckingStatus(true);
+                try {
+                    const { data, error } = await supabase
+                        .from('businesses')
+                        .select('settings')
+                        .eq('id', targetBizId)
+                        .single();
+                    if (data) {
+                        const status = data.settings?.status;
+                        if (status && status !== 'approved') {
+                            setIsApproved(false);
+                        } else {
+                            setIsApproved(true);
+                        }
+                    } else {
+                        // If business is not found, block it
+                        setIsApproved(false);
+                    }
+                } catch (err) {
+                    console.error('Error checking business status:', err);
+                } finally {
+                    setCheckingStatus(false);
+                }
+            };
+            checkStatus();
+        } else {
+            setIsApproved(true);
+        }
+    }, [targetBizId]);
 
     // Check Auth Status on mount
     useEffect(() => {
@@ -293,6 +336,22 @@ export default function LoyaltyPortal() {
         setCoffeeCount(0);
         setPromotions([]);
     };
+
+    // Render loading or lockout screen if business status check is active
+    if (checkingStatus) {
+        return (
+            <div className="min-h-screen bg-[#121110] flex flex-col items-center justify-center font-inter" dir="rtl">
+                <div className="text-center">
+                    <div className="w-16 h-16 border-4 border-amber-500/30 border-t-amber-500 rounded-full animate-spin mx-auto mb-6"></div>
+                    <h3 className="text-lg font-bold text-white mb-2">בודק הגדרות סניף...</h3>
+                </div>
+            </div>
+        );
+    }
+
+    if (!isApproved) {
+        return <VerificationPending />;
+    }
 
     // Render Login Screen if not authenticated
     if (!isAuthenticated) {

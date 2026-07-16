@@ -80,7 +80,9 @@ function AppContent() {
   return (
     <div className={`${isDarkMode ? 'dark' : ''} font-inter`} dir="ltr">
       {isCustomerLoyaltyApp ? (
-        <LoyaltyPortal />
+        <HashRouter>
+          <LoyaltyPortal />
+        </HashRouter>
       ) : isStandaloneRanTunes ? (
         <HashRouter>
           <Routes>
