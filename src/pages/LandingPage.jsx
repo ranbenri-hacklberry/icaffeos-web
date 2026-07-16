@@ -56,27 +56,19 @@ export default function LandingPage() {
       {/* 1. Header / Navigation */}
       <header className="max-w-6xl mx-auto px-6 py-4 md:py-6 flex justify-between items-center border-b border-stone-900">
         <div className="flex items-center gap-3">
-          <span className="text-2xl">☕</span>
-          <span className="text-xl font-bold tracking-wider text-amber-500">icaffeOS</span>
-        </div>
-        <div>
-          <a 
-            href="#trial-form" 
-            className="px-5 py-2.5 rounded-full bg-amber-700/10 border border-amber-600/30 text-amber-400 font-medium hover:bg-amber-700/20 transition duration-300 text-sm"
-          >
-            הרשמה לבעלי עסקים
-          </a>
+          <img src="/rainbow_cup.png" alt="icaffeOS Logo" className="w-8 h-8 object-contain" />
+          <span className="text-[24px] sm:text-xl font-extrabold tracking-wider text-amber-500">icaffeOS</span>
         </div>
       </header>
 
       {/* 2. Hero Section */}
       <section className="max-w-4xl mx-auto px-6 pt-8 md:pt-20 pb-12 md:pb-16 text-center">
         
-        <h1 className="text-[28px] sm:text-4xl md:text-6xl font-extrabold tracking-tight mb-6 leading-tight md:leading-none">
+        <h1 className="text-[34px] sm:text-4xl md:text-6xl font-extrabold tracking-tight mb-6 leading-tight md:leading-none">
           <span className="block sm:inline">מועדון לקוחות </span>
           <span className="block sm:inline">שעובד בשבילכם.</span>
           <br className="hidden sm:inline" />
-          <span className="block sm:inline-block text-[21px] sm:text-[inherit] text-transparent bg-clip-text bg-gradient-to-r from-amber-400 to-amber-600 mt-2 sm:mt-0">
+          <span className="block sm:inline-block text-[25px] sm:text-[inherit] text-transparent bg-clip-text bg-gradient-to-r from-amber-400 to-amber-600 mt-2 sm:mt-0">
             לא בשביל חברות ה-SMS.
           </span>
         </h1>
