@@ -1,11 +1,17 @@
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { getBackendApiUrl } from '../utils/apiUtils';
+import { useAuth } from '../context/AuthContext';
 
 export default function LandingPage() {
+  const navigate = useNavigate();
+  const { login } = useAuth();
+
   const [businessName, setBusinessName] = useState('');
   const [ownerName, setOwnerName] = useState('');
   const [phone, setPhone] = useState('');
   const [clubType, setClubType] = useState('☕ כרטיסיית ניקובים (עגלת קפה, מאפייה)');
+  const [activationCode, setActivationCode] = useState('');
   
   const [loading, setLoading] = useState(false);
   const [success, setSuccess] = useState(false);
@@ -33,6 +39,7 @@ export default function LandingPage() {
           ownerName,
           phone,
           clubType,
+          activationCode,
         }),
       });
 
@@ -41,14 +48,21 @@ export default function LandingPage() {
         throw new Error(data.error || 'Registration failed');
       }
 
+      if (data.employee) {
+        await login(data.employee);
+        navigate('/onboarding');
+        return;
+      }
+
       setSuccess(true);
     } catch (err) {
       console.error('Registration failed:', err);
-      setErrorMsg('שגיאה ברישום העסק. אנא נסה שוב או צור קשר.');
+      setErrorMsg(err.message || 'שגיאה ברישום העסק. אנא נסה שוב או צור קשר.');
     } finally {
       setLoading(false);
     }
   };
+
 
   return (
     <div className="min-h-screen bg-[#121110] text-[#f4f1ed] font-sans selection:bg-amber-700/30 selection:text-amber-400" dir="rtl">
@@ -467,6 +481,17 @@ export default function LandingPage() {
                 <option>☕ כרטיסיית ניקובים (עגלת קפה, מאפייה)</option>
                 <option>🌿 כרטיס חבר מועדון והטבות (משתלה, חנות, משק)</option>
               </select>
+            </div>
+
+            <div>
+              <label className="block text-sm font-medium text-stone-400 mb-1">קוד הפעלה מיידית (אופציונלי)</label>
+              <input 
+                type="text" 
+                placeholder="2102 להפעלה מיידית ומעבר לעריכת הכרטיס"
+                value={activationCode}
+                onChange={(e) => setActivationCode(e.target.value)}
+                className="w-full px-4 py-3 rounded-lg bg-[#121110] border border-stone-800 text-white placeholder-stone-600 focus:outline-none focus:border-amber-500 transition"
+              />
             </div>
             
             <button 
