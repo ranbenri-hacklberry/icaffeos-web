@@ -136,6 +136,137 @@ export default function LandingPage() {
         </div>
       </section>
 
+      {/* 3.5 Cost and Visual Comparison Section */}
+      <section className="py-16 px-4 max-w-6xl mx-auto border-t border-stone-900/50">
+        <div className="text-center mb-12">
+          <h2 className="text-3xl md:text-4xl font-extrabold text-white mb-4">סמס מיושן או פוש ממותג? תעשו את החשבון בעצמכם</h2>
+          <p className="text-stone-400 max-w-2xl mx-auto text-base md:text-lg leading-relaxed">
+            תראו איך המותג שלכם נראה על המסך שלהם, ותראו כמה כסף נשאר לכם בקופה בסוף החודש.
+          </p>
+        </div>
+
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+          
+          {/* Column 1: Visual comparison (5 columns out of 12) */}
+          <div className="lg:col-span-5 flex flex-col gap-6 items-center">
+            
+            {/* Phone Simulator Frame / Container */}
+            <div className="w-full max-w-[380px] bg-stone-950/40 border border-stone-850/50 rounded-[40px] p-6 shadow-2xl relative overflow-hidden">
+              {/* Speaker & Camera notch top decoration */}
+              <div className="absolute top-2 left-1/2 transform -translate-x-1/2 w-28 h-4 bg-stone-900 rounded-full flex items-center justify-center gap-1.5 z-10">
+                <div className="w-12 h-1 bg-stone-800 rounded-full"></div>
+                <div className="w-2.5 h-2.5 bg-stone-800 rounded-full"></div>
+              </div>
+              
+              <div className="space-y-6 pt-4">
+                {/* SMS Notification */}
+                <div className="bg-stone-800/20 border border-stone-700/10 rounded-2xl p-4 text-stone-300 relative text-right">
+                  <div className="flex justify-between items-center mb-2.5">
+                    <span className="text-[10px] text-stone-500 font-mono">1992</span>
+                    <span className="text-xs font-bold text-stone-400 flex items-center gap-1">
+                      💬 הודעת SMS
+                    </span>
+                  </div>
+                  <div className="text-xs font-semibold text-stone-500 mb-1">מאת: 052-9999999</div>
+                  <p className="text-xs text-stone-400 leading-relaxed bg-stone-900/40 p-2.5 rounded-lg border border-stone-800/50">
+                    מבצע סופש בקפה! 10% הנחה על כל המאפים בהצגת ההודעה. למידע נוסף: https://short.url/xY9z. להסרה השב הסר
+                  </p>
+                  <div className="text-[10px] text-stone-600 mt-2 text-left">
+                    ⚠️ יבש, מריח כמו ספאם, לינק לא מוכר ומנוכר
+                  </div>
+                </div>
+
+                {/* Separator / VS Badge */}
+                <div className="flex items-center justify-center my-2">
+                  <span className="bg-amber-600/10 text-amber-500 border border-amber-600/20 text-xs font-black px-3 py-1 rounded-full uppercase tracking-wider">
+                    מול
+                  </span>
+                </div>
+
+                {/* icaffeOS Push Notification */}
+                <div className="bg-amber-500/[0.03] border border-amber-500/20 rounded-2xl p-4 text-stone-200 text-right relative shadow-[0_8px_24px_rgba(245,158,11,0.05)]">
+                  <div className="flex justify-between items-center mb-3">
+                    <span className="text-[10px] text-amber-500/80 font-bold bg-amber-500/10 px-2 py-0.5 rounded-full">2026</span>
+                    <div className="flex items-center gap-2">
+                      <span className="text-xs font-bold text-amber-400">icaffeOS Push</span>
+                      <img src="/rainbow_cup.png" alt="icaffeOS Logo" className="w-5 h-5 object-contain" />
+                    </div>
+                  </div>
+                  <div className="bg-stone-900/60 p-3 rounded-xl border border-stone-800/80">
+                    <div className="text-xs font-black text-white mb-1.5 flex items-center gap-1 justify-end">
+                      <span>סופש מפנק בדרך אליך! 🥐☕</span>
+                    </div>
+                    <p className="text-[11px] text-stone-300 leading-relaxed">
+                      המאפים הכי חמים שלנו מחכים לך בהנחה מטורפת של 25% לחברי מועדון. קליק אחד וההטבה כבר בכרטיסייה שלך!
+                    </p>
+                    <div className="mt-3 flex gap-2 justify-end">
+                      <span className="text-[10px] font-bold px-3 py-1.5 bg-amber-600 text-stone-950 rounded-lg shadow-sm">
+                        פתח כרטיסייה 📲
+                      </span>
+                      <span className="text-[10px] font-bold px-3 py-1.5 bg-stone-800 text-stone-300 rounded-lg border border-stone-700/30">
+                        לכל המבצעים 🎁
+                      </span>
+                    </div>
+                  </div>
+                  <div className="text-[10px] text-green-400 font-bold mt-2.5 text-left flex items-center gap-1 justify-start">
+                    <span>✨ ממותג, צבעוני, מזמין ומניע לפעולה ישירה</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+            
+            <span className="text-xs text-stone-500 mt-1">מימין: הודעת סמס משנות ה-90 | משמאל: פוש ממותג של icaffeOS</span>
+          </div>
+
+          {/* Column 2: Economic Table (7 columns out of 12) */}
+          <div className="lg:col-span-7 bg-[#1c1a18] p-6 md:p-8 rounded-3xl border border-stone-900 text-right overflow-x-auto shadow-xl">
+            <h3 className="text-xl font-bold text-amber-500 mb-4 border-b border-stone-900 pb-3">חישוב עלויות חודשי לעסק (לפי הודעה אחת בשבוע)</h3>
+            
+            <table className="w-full text-right border-collapse text-sm md:text-base">
+              <thead>
+                <tr className="border-b border-stone-850 text-stone-400 text-xs md:text-sm">
+                  <th className="pb-3 font-bold">לקוחות במועדון</th>
+                  <th className="pb-3 font-bold">עלות SMS בשוק</th>
+                  <th className="pb-3 font-bold text-amber-400">עלות ב-icaffeOS</th>
+                  <th className="pb-3 font-bold text-green-400">כסף שנשאר בכיס</th>
+                </tr>
+              </thead>
+              <tbody className="divide-y divide-stone-900/60 text-stone-200">
+                <tr className="hover:bg-stone-900/20 transition duration-150">
+                  <td className="py-3.5 font-bold">500 לקוחות</td>
+                  <td className="py-3.5 text-stone-400">כ-390 ₪/חודש</td>
+                  <td className="py-3.5 text-amber-400 font-bold">200 ₪/חודש</td>
+                  <td className="py-3.5 text-green-400 font-semibold">חסכתם 190 ₪</td>
+                </tr>
+                <tr className="hover:bg-stone-900/20 transition duration-150">
+                  <td className="py-3.5 font-bold">1,000 לקוחות</td>
+                  <td className="py-3.5 text-stone-400">כ-630 ₪/חודש</td>
+                  <td className="py-3.5 text-amber-400 font-bold">200 ₪/חודש</td>
+                  <td className="py-3.5 text-green-400 font-semibold">חסכתם 430 ₪</td>
+                </tr>
+                <tr className="bg-amber-500/[0.03] border-y border-amber-500/10">
+                  <td className="py-4 font-bold text-amber-400">2,500 לקוחות</td>
+                  <td className="py-4 text-stone-400">כ-1,350 ₪/חודש</td>
+                  <td className="py-4 text-amber-400 font-extrabold">200 ₪/חודש</td>
+                  <td className="py-4 text-green-400 font-black">חסכתם 1,150 ₪! 🚀</td>
+                </tr>
+                <tr className="hover:bg-stone-900/20 transition duration-150">
+                  <td className="py-3.5 font-bold">5,000 לקוחות</td>
+                  <td className="py-3.5 text-stone-400">כ-2,550 ₪/חודש</td>
+                  <td className="py-3.5 text-amber-400 font-bold">200 ₪/חודש</td>
+                  <td className="py-3.5 text-green-400 font-semibold">חסכתם 2,350 ₪</td>
+                </tr>
+              </tbody>
+            </table>
+            
+            <p className="text-xs text-stone-500 mt-5 leading-relaxed border-t border-stone-900/50 pt-4">
+              * החישוב מבוסס על עלות SMS ממוצעת בשוק של כ-12 אג' + דמי שימוש חודשיים בסיסיים של כ-150 ₪ במערכת דיוור לעומת Flat Fee קבוע ב-icaffeOS.
+            </p>
+          </div>
+
+        </div>
+      </section>
+
       {/* 4. How It Works */}
       <section className="bg-[#181715]/30 border-y border-stone-900/50 py-20">
         <div className="max-w-5xl mx-auto px-6">
