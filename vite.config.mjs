@@ -145,7 +145,7 @@ export default defineConfig(async ({ mode }) => {
   });
 
   return {
-    base: './',
+    base: '/',
     build: {
       outDir: "dist",
       chunkSizeWarningLimit: isLite ? 500 : 2000,
