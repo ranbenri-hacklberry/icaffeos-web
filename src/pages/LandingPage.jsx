@@ -243,13 +243,13 @@ export default function LandingPage() {
                       <div className="bg-stone-900/80 p-1.5 rounded-lg border border-stone-850">
                         <div className="text-[7px] font-black text-white mb-0.5">מבצע סופ"ש: 25% הנחה על כל המאפים! 🥐☕</div>
                         <p className="text-[6px] text-stone-300 leading-normal">
-                          המאפים החמים שלנו מחכים לך בהנחה מטורפת של 25%.
+                          קרואסון חמאה פריך, דניש שוקולד עשיר ורוגלך חם מחכים לך בהנחה מטורפת של 25%.
                         </p>
                         
                         {/* Embedded Image in Push */}
                         <img 
-                          src="/assets/seed_cup_coffee.png" 
-                          alt="Coffee" 
+                          src="/assets/fallback_pastries.png" 
+                          alt="Pastries" 
                           className="w-full h-10 object-cover rounded my-1 border border-stone-800"
                         />
 
@@ -342,8 +342,8 @@ export default function LandingPage() {
 
             <div className="text-center md:text-right">
               <div className="w-12 h-12 rounded-full bg-amber-500/10 text-amber-400 flex items-center justify-center text-xl font-bold mb-4 md:mr-0 mx-auto">3</div>
-              <h3 className="text-xl font-bold mb-2">מנקבים באפס מאמץ</h3>
-              <p className="text-stone-400 text-sm leading-relaxed">הלקוח סורק את קוד ה-QR בקופה כדי להוסיף כוס קפה לכרטיסייה. אימות GPS מהיר ברקע שומר עליכם מרמאויות.</p>
+              <h3 className="text-xl font-bold mb-2">מבצעים והודעות באפס מאמץ</h3>
+              <p className="text-stone-400 text-sm leading-relaxed">כמה זה פשוט דרך הנייד להעלות מבצע – רק צריך לכתוב כותרת, תיאור, להעלות תמונה ולשלוח במכה לכל הלקוחות שלכם.</p>
             </div>
           </div>
         </div>
