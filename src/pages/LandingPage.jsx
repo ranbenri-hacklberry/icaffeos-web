@@ -107,19 +107,19 @@ export default function LandingPage() {
         <div className="grid grid-cols-2 gap-3 md:gap-8 w-full text-right">
           
           {/* Column 1: Year 1992 (Old World) */}
-          <div className="bg-[#eeebd9] text-stone-900 border border-stone-300 rounded-3xl p-4 md:p-8 flex flex-col gap-4 shadow-[inset_0_2px_4px_rgba(0,0,0,0.06)]">
-            <h3 className="text-amber-800 font-black text-sm md:text-xl border-b border-stone-400/40 pb-3 flex items-center gap-1.5">
-              <span>📅</span> שנת 1992 (העולם הישן)
+          <div className="bg-stone-200 text-stone-900 p-3 md:p-6 rounded-none border-2 border-dashed border-stone-400 flex flex-col gap-4 font-mono">
+            <h3 className="text-stone-700 font-bold text-base md:text-xl border-b border-stone-400 pb-2 uppercase tracking-wider">
+              ⚠️ שנת 1992 (העולם הישן)
             </h3>
-            <div className="text-[11px] md:text-sm text-stone-700 space-y-4 font-medium leading-relaxed">
+            <div className="text-[11px] md:text-sm text-stone-850 space-y-4 leading-relaxed font-semibold">
               <p>
-                <strong>הסיוט של הכרטיסיות האבודות:</strong> הלקוח שכח את כרטיסיית הנייר באוטו, ואתם מאלתרים פתרונות או נותנים קפה חינם. שלא לדבר על הבריסטה שמחלק ניקובים לחברים שלו "על יבש".
+                <strong>הסיוט של הכרטיסיות האבודות:</strong> הלקוח מגיע לקופה, שוב שכח את כרטיסיית הנייר באוטו, ואתם נאלצים לאלתר פתרונות או לתת קפה חינם כדי שלא יתבאס. שלא לדבר על הבריסטה שמחלק ניקובים לחברים שלו "על יבש".
               </p>
               <p>
-                <strong>מס ה-SMS השוחט:</strong> משלמים מנוי יקר + חבילות SMS מוגבלות. ככל שאתם גדלים ומביאים יותר לקוחות – חברות התוכנה קונסות אתכם ביותר כסף על הודעות.
+                <strong>מס ה-SMS השוחט:</strong> אתם משלמים דמי מנוי חודשיים יקרים רק על התוכנה, ובנוסף קונים חבילות SMS מוגבלות. ככל שאתם גדלים ומביאים יותר לקוחות – חברות התוכנה קונסות אתכם ביותר כסף על הודעות.
               </p>
               <p>
-                <strong>הברזלים והכבלים בקופה:</strong> דמי הקמה מטורפים, טאבלטים ייעודיים שלוקחים מקום יקר ויסבכו את הצוות שלכם בשיא הלחץ של הבוקר.
+                <strong>הברזלים והכבלים בקופה:</strong> מאלצים אתכם לשלם דמי הקמה מטורפים, לקנות טאבלטים ייעודיים שיעמדו על הדלפק, יקחו מקום יקר ויסבכו את הצוות בשיא הלחץ של הבוקר.
               </p>
             </div>
           </div>
@@ -134,10 +134,10 @@ export default function LandingPage() {
                 <strong>הכרטיסייה קבוע בתוך הטלפון:</strong> סריקה מהירה של קוד ה-QR בקופה והכרטיסייה עולה ישירות על מסך הבית. כל הניקובים מאובטחים, מהירים ובלי קומבינות בקופה.
               </p>
               <p>
-                <strong>הודעות פוש ללא הגבלה ובמחיר פיקס:</strong> <strong>2 באחד</strong> – כרטיסייה ומערכת הודעות. שולחים פושים ל-5,000 איש בחינם והעלות היא תמיד <strong>200 ₪ בחודש וזהו</strong>.
+                <strong>הודעות פוש ללא הגבלה ובמחיר פיקס:</strong> <strong>2 באחד</strong> – כרטיסייה ומערכת הודעות. שולחים 5,000, 10,000 או אפילו 50,000 הודעות בחודש והעלות היא תמיד <strong>200 ₪ בחודש וזהו</strong>.
               </p>
               <p>
-                <strong>אפס חומרה, אפס דמי הקמה:</strong> בלי מכשירים חדשים ובלי דמי התקנה מומצאים. המערכת ממותגת בלוגו ובצבעים שלכם, ועובדת מהנייד שכבר יש בעסק.
+                <strong>אפס חומרה, הקמה עצמית ב-5 דקות:</strong> בלי מכשירים חדשים ובלי דמי התקנה מומצאים. הגדרה עצמאית מהנייד שלכם תוך 5 דקות גג – והכל ממותג בלוגו ובצבעים שלכם.
               </p>
             </div>
           </div>
