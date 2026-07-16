@@ -76,14 +76,14 @@ export default function LandingPage() {
         </div>
         
         <h1 className="text-4xl md:text-6xl font-extrabold tracking-tight mb-6 leading-tight">
-          מועדון הלקוחות הדיגיטלי של העסק שלך. <br />
+          מועדון לקוחות שעובד בשבילכם. <br />
           <span className="text-transparent bg-clip-text bg-gradient-to-r from-amber-400 to-amber-600">
-            באוויר תוך 10 דקות.
+            לא בשביל חברות ה-SMS.
           </span>
         </h1>
         
-        <p className="text-lg md:text-xl text-stone-400 max-w-2xl mx-auto mb-10 leading-relaxed">
-          בלי להתקין אפליקציות מורכבות, בלי לשלם עמלות שוחטות ובלי לקנות חומרה יקרה. כרטיסיית לקוח מעוצבת בארנק הדיגיטלי של הלקוחות שלך – במחיר חודשי קבוע ומשתלם אחד.
+        <p className="text-lg md:text-xl text-stone-400 max-w-3xl mx-auto mb-10 leading-relaxed">
+          הגיע הזמן להתקדם לפתרון שמשלב את כל מה שהעסק שלכם צריך. icaffeOS מביאה לכם 2 במחיר 1: כרטיסיית ניקובים דיגיטלית קלה לתפעול, פלוס מערכת מועדון לקוחות שמאפשרת לכם לשלוח מבצעים והטבות ישירות למסך הבית של הלקוחות שלכם. הכל מעוצב לפי המותג, הצבעים והלוגו שלכם, בלי דמי הקמה ובלי הגבלה על כמות ההודעות. רק 200 ₪ בחודש פיקס – גם אם יש לכם 5,000 לקוחות שמקבלים עדכון שבועי.
         </p>
 
         <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
