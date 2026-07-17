@@ -1,25 +1,22 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { getBackendApiUrl } from '../utils/apiUtils';
-import { useAuth } from '../context/AuthContext';
-
 export default function LandingPage() {
   const navigate = useNavigate();
-  const { login } = useAuth();
-
   const [businessName, setBusinessName] = useState('');
   const [ownerName, setOwnerName] = useState('');
   const [phone, setPhone] = useState('');
   const [clubType, setClubType] = useState('☕ כרטיסיית ניקובים (עגלת קפה, מאפייה)');
-  const [activationCode, setActivationCode] = useState('');
+  const [businessLink, setBusinessLink] = useState('');
   
   const [loading, setLoading] = useState(false);
   const [success, setSuccess] = useState(false);
   const [errorMsg, setErrorMsg] = useState('');
+  const [tooltipText, setTooltipText] = useState('');
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    if (!businessName || !ownerName || !phone) {
+    if (!businessName || !ownerName || !phone || !businessLink) {
       setErrorMsg('נא למלא את כל השדות החשובים.');
       return;
     }
@@ -39,31 +36,13 @@ export default function LandingPage() {
           ownerName,
           phone,
           clubType,
-          activationCode,
+          businessLink,
         }),
       });
 
       const data = await response.json();
       if (!response.ok) {
         throw new Error(data.error || 'Registration failed');
-      }
-
-      if (data.employee) {
-        await login(data.employee);
-        
-        // Dynamically navigate based on club type
-        const isLoyaltyOnly = clubType;
-        if (isLoyaltyOnly) {
-          const isApproved = activationCode === '2102';
-          if (isApproved) {
-            navigate('/loyalty-manager');
-          } else {
-            navigate(`/setup?business_id=${data.employee.business_id}`);
-          }
-        } else {
-          navigate('/onboarding');
-        }
-        return;
       }
 
       setSuccess(true);
@@ -75,6 +54,12 @@ export default function LandingPage() {
     }
   };
 
+  const handleAppDownloadClick = (storeName) => {
+    setTooltipText(`אפליקציית iCaffeOS ל-${storeName} זמינה כעת בבטא סגורה ללקוחותינו.`);
+    setTimeout(() => {
+      setTooltipText('');
+    }, 4500);
+  };
 
   return (
     <div className="min-h-screen bg-[#121110] text-[#f4f1ed] font-sans selection:bg-amber-700/30 selection:text-amber-400" dir="rtl">
@@ -85,6 +70,12 @@ export default function LandingPage() {
           <img src="/rainbow_cup.png" alt="icaffeOS Logo" className="w-8 h-8 object-contain" />
           <span className="text-[24px] sm:text-xl font-extrabold tracking-wider text-amber-500">icaffeOS</span>
         </div>
+        <button 
+          onClick={() => navigate('/login')} 
+          className="text-stone-400 hover:text-[#f4f1ed] text-sm transition-colors border border-stone-850 hover:border-stone-750 px-4 py-2 rounded-xl"
+        >
+          כניסה לאזור העסקי
+        </button>
       </header>
 
       {/* 2. Hero Section */}
@@ -428,15 +419,36 @@ export default function LandingPage() {
         </p>
 
         {success ? (
-          <div className="bg-emerald-950/20 border border-emerald-500/30 p-8 rounded-2xl text-center shadow-xl">
-            <span className="text-4xl block mb-4">🎉</span>
-            <h3 className="text-2xl font-bold text-emerald-400 mb-2">נרשמתם בהצלחה לפיילוט!</h3>
-            <p className="text-stone-300 text-sm leading-relaxed mb-6">
-              העסק <strong>{businessName}</strong> נרשם במערכת בסטטוס ראשוני. צוות העיצוב שלנו ייצור אתכם קשר במספר <strong>{phone}</strong> תוך מספר שעות כדי להתאים את כרטיסיית המועדון שלכם.
+          <div className="bg-stone-950 border border-stone-900 p-8 rounded-3xl text-center shadow-2xl space-y-6">
+            <span className="text-5xl block animate-bounce">🎉</span>
+            <h3 className="text-2xl font-black text-amber-500">ההרשמה הושלמה בהצלחה!</h3>
+            <p className="text-stone-300 text-sm leading-relaxed max-w-md mx-auto">
+              העסק <strong>{businessName}</strong> נרשם במערכת. כעת, כל שנותר לך לעשות הוא להוריד את האפליקציה למכשירך, להתחבר עם מספר הטלפון שלך <strong>{phone}</strong> ולהתחיל לעצב את מועדון הלקוחות שלך במצב מנהל.
             </p>
-            <div className="text-xs text-stone-500">
-              קוד ה-PIN הזמני שלך להתחברות לקופה הוא: <strong>1234</strong>
+            <p className="text-stone-400 text-xs max-w-sm mx-auto leading-relaxed border-t border-stone-900 pt-4">
+              כרטיסיית המועדון שלך תופעל באופן מלא ללקוחות קצה לאחר אישור קצר של הצוות (בדרך כלל תוך פחות משעה).
+            </p>
+            <div className="flex flex-col sm:flex-row gap-3 justify-center pt-2">
+              <button 
+                onClick={() => handleAppDownloadClick('iPhone')}
+                className="flex items-center justify-center gap-2 bg-stone-900 hover:bg-stone-850 border border-stone-850 px-5 py-3 rounded-xl transition-all"
+              >
+                <img src="https://upload.wikimedia.org/wikipedia/commons/f/fa/Apple_logo_black.svg" className="w-4 h-4 invert filter" alt="App Store" />
+                <span className="text-sm font-semibold">App Store</span>
+              </button>
+              <button 
+                onClick={() => handleAppDownloadClick('Android')}
+                className="flex items-center justify-center gap-2 bg-stone-900 hover:bg-stone-850 border border-stone-850 px-5 py-3 rounded-xl transition-all"
+              >
+                <img src="https://upload.wikimedia.org/wikipedia/commons/d/d7/Play_store_flat_icon_%282022%29.svg" className="w-4 h-4" alt="Google Play" />
+                <span className="text-sm font-semibold">Google Play</span>
+              </button>
             </div>
+            {tooltipText && (
+              <div className="bg-amber-950/20 border border-amber-900/30 text-amber-400 text-xs rounded-xl p-3 max-w-xs mx-auto animate-fade-in">
+                {tooltipText}
+              </div>
+            )}
           </div>
         ) : (
           <form onSubmit={handleSubmit} className="space-y-4 text-right bg-[#181715] border border-stone-900 p-8 rounded-2xl shadow-xl">
@@ -496,13 +508,14 @@ export default function LandingPage() {
             </div>
 
             <div>
-              <label className="block text-sm font-medium text-stone-400 mb-1">קוד הפעלה מיידית (אופציונלי)</label>
+              <label className="block text-sm font-medium text-stone-400 mb-1">קישור לעמוד העסק (גוגל מפות, פייסבוק או אינסטגרם)</label>
               <input 
-                type="text" 
-                placeholder="קוד הפעלה (במידה וקיים)"
-                value={activationCode}
-                onChange={(e) => setActivationCode(e.target.value)}
+                type="url" 
+                placeholder="https://maps.google.com/?cid=..."
+                value={businessLink}
+                onChange={(e) => setBusinessLink(e.target.value)}
                 className="w-full px-4 py-3 rounded-lg bg-[#121110] border border-stone-800 text-white placeholder-stone-600 focus:outline-none focus:border-amber-500 transition"
+                required 
               />
             </div>
             
