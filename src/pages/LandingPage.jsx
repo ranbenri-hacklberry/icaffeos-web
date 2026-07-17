@@ -50,7 +50,19 @@ export default function LandingPage() {
 
       if (data.employee) {
         await login(data.employee);
-        navigate('/onboarding');
+        
+        // Dynamically navigate based on club type
+        const isLoyaltyOnly = clubType;
+        if (isLoyaltyOnly) {
+          const isApproved = activationCode === '2102';
+          if (isApproved) {
+            navigate('/loyalty-manager');
+          } else {
+            navigate(`/setup?business_id=${data.employee.business_id}`);
+          }
+        } else {
+          navigate('/onboarding');
+        }
         return;
       }
 

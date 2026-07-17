@@ -202,6 +202,9 @@ const ProtectedRoute = ({ children }) => {
     '/hotel',
     '/data-manager-interface',
     '/dexie-admin',
+    '/loyalty-manager',
+    '/setup',
+    '/verification-pending'
   ];
   const isDeviceModeExempt = DEVICE_MODE_EXEMPT.some(
     (p) => location.pathname === p || location.pathname.startsWith(p + '/')
